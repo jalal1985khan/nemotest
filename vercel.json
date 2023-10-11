@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "versel_deploymet/wsgi.py",
+        "src": "nsnemo/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
       },
@@ -16,12 +16,12 @@
     ],
     "routes": [
       {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
+        "src": "/staticfiles/(.*)",
+        "dest": "/staticfiles/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "versel_deploymet/wsgi.py"
+        "dest": "nsnemo/wsgi.py"
       }
     ]
   }

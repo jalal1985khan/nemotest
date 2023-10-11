@@ -1,0 +1,28 @@
+from django.contrib import admin
+from .models import *
+
+# Register your models here.
+admin.site.register(Candidate)
+admin.site.register(Company)
+admin.site.register(Vessel)
+admin.site.register(Experience)
+admin.site.register(Rank)
+admin.site.register(Grade)
+admin.site.register(Port)
+admin.site.register(PortAgent)
+admin.site.register(Hospital)
+admin.site.register(DocumentType)
+admin.site.register(Vendors)
+admin.site.register(Profile)
+admin.site.register(OfficeDocument)
+admin.site.register(CountryName)
+admin.site.register(Notifications)
+admin.site.register(ReadNotification)
+admin.site.register(CrewPlanner)
+admin.site.register(Medical)
+admin.site.register(Travel)
+admin.site.register(BankDetails)
+admin.site.register(candidateDocument)
+admin.site.register(candidateNkd)
+admin.site.register(contract)
+admin.site.register(discussion)
