@@ -1,0 +1,397 @@
+{% include 'include/header.html' %}
+<style>
+  .right{
+    float:right;
+  }
+  .mytime{
+    display: flex;
+    justify-content: space-between;
+  }
+  .country{
+    font-weight: bolder;
+  }
+  .timer{
+    font-size: 22px;
+    font-weight: bolder;
+    font-family: fangsong;
+  }
+
+</style>
+ <!-- Content wrapper -->
+ <div class="content-wrapper">
+  <!-- Content -->
+
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+      <div class="col-lg-12 mb-4 order-0">
+        <div class="card">
+          <div class="d-flex align-items-end row">
+            <div class="col-sm-7">
+              <div class="card-body">
+                <h5 class="card-title text-primary">Congratulations {{ request.user.first_name }} {{ request.user.last_name }}! 🎉</h5>
+                <p class="mb-4">
+                  You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
+                  your profile.
+                </p>
+
+                <a href="javascript:;" class="btn btn-sm btn-outline-primary"></a>
+              </div>
+            </div>
+            <div class="col-sm-5 text-center text-sm-left">
+              <div class="card-body pb-0 px-0 px-md-4">
+                <img
+                  src="/media/man-with-laptop-light.png"
+                  height="140"
+                  alt="View Badge User"
+                  data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                  data-app-light-img="illustrations/man-with-laptop-light.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
+   <div class="row">
+      <!-- Total Revenue -->
+<div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+  <div class="card">
+    <div class="row row-bordered g-0">
+      <div class="col-md-8">
+        <h5 class="card-header m-0 me-2 pb-3">WORLD TIME ZONE</h5>
+        
+        <div class="demo-inline-spacing mx-2">
+          <ul class="list-group timeZone"></ul>
+        </div>
+  
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <div class="text-center">
+            <form name="drop_list" action="" method="get" class='frms' id='content'>
+              <SELECT NAME="Country_list" id='list' class="form-select time" onchange="selecteval(this.value)">
+              <Option value="" >Select Country</option>
+              <Option value="" selected id='sel'>India</option>
+              </SELECT>
+              </form>
+           
+          </div>
+        </div>
+        <div class="text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180" height="180"><defs/><circle cx="90.5" cy="90.5" r="85" fill="#fff" stroke="#696cff" style="stroke-width: 1;" stroke-width="5"/>
+            <path fill="none" stroke="#696cff" d="M160,90L170,90" style="stroke-width: 3;" stroke-width="1"/>
+            <path fill="none" stroke="#696cff" d="M167,98L170,98" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M165,106L168,107" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M163,114L166,115" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M160,121L163,123" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M151,125L159,130" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M152,135L155,137" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M147,142L149,144" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M142,147L144,149" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M135,152L137,155" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M125,151L130,159" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M121,160L123,163" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M114,163L115,166" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M106,165L107,168" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M98,167L98,170" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M90,160L90,170" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M82,167L82,170" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M74,165L73,168" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M66,163L65,166" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M59,160L57,163" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M55,151L50,159" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M45,152L43,155" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M38,147L36,149" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M33,142L31,144" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M28,135L25,137" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M29,125L21,130" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M20,121L17,123" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M17,114L14,115" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M15,106L12,107" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M13,98L10,98" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M20,90L10,90" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M13,82L10,82" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M15,74L12,73" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M17,66L14,65" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M20,59L17,57" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M29,55L21,50" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M28,45L25,43" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M33,38L31,36" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M38,33L36,31" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M45,28L43,25" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M55,29L50,21" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M59,20L57,17" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M66,17L65,14" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M74,15L73,12" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M82,13L82,10" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M90,20L90,10" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M98,13L98,10" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M106,15L107,12" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M114,17L115,14" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M121,20L123,17" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M125,29L130,21" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M135,28L137,25" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M142,33L144,31" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M147,38L149,36" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M152,45L155,43" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M151,55L159,50" style="stroke-width: 3;" stroke-width="7"/>
+            <path fill="none" stroke="#696cff" d="M160,59L163,57" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M163,66L166,65" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M165,74L168,73" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M167,82L170,82" style="stroke-width: 1;" stroke-width="3"/>
+            <path fill="none" stroke="#696cff" d="M90,90L90,30" style="stroke-width: 2;" stroke-width="2" transform="rotate()" id='hourr'/>
+            <path fill="none" stroke="#696cff" d="M90,90L90,25" style="stroke-width: 2;" stroke-width="2" transform="rotate()" id='minute'/>
+            <path fill="none" stroke="#ff0000" d="M90,90L90,20" style="stroke-width: 2;" stroke-width="2" transform="rotate()" id='second'/>
+            <circle cx="90.5" cy="90.5" r="3" fill="#696cff" stroke="#696cff"/>
+            </svg>
+        </div>
+        <div class="text-center fw-semibold pt-3 mb-2" id="cntryname">62% Company Growth</div>
+
+        <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
+          <div class="d-flex">
+            <div class="me-2">
+              <span class="badge bg-label-primary p-2">
+                <i class="bx bx-time text-primary"></i></span>
+            </div>
+            <div class="d-flex flex-column">
+              <h6 class="mt-2" id="coun_date">$32.5k</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!-- clock end here -->
+<!--/ Total Revenue -->
+      <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                  <div class="card-title mb-0">
+                    <h5 class="m-0 me-2">CREW PLANNER</h5>
+                    <br>
+                  </div>
+                  <div class="dropdown">
+                    <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                      <a class="dropdown-item" href="/view-crewplanner/">View All</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                  <!-- <div id="chart"></div> -->
+                  <div id="orderStatisticsChart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Total Revenue -->
+<div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
+  <div class="card">
+    <div class="row row-bordered g-0">
+      <div class="col-md-12">
+        <h5 class="card-header m-0 me-2 pb-3">AVALABLE CANDIDATE</h5>
+        
+        <div id="charts">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+    <div class="row">
+      <!-- Order Statistics -->
+      <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+        <div class="card h-100">
+          <div class="card-header d-flex align-items-center justify-content-between pb-0">
+            <div class="card-title mb-0">
+              <h5 class="m-0 me-2">CREW PLANNERS</h5>
+              <!--<small class="text-muted">42.82k Total Sales</small>-->
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn p-0"
+                type="button"
+                id="orederStatistics"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                <a class="dropdown-item" href="javascript:void(0);">Share</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex flex-column align-items-center gap-1">
+                <h2 class="mb-2">{{ totalcrew }}</h2>
+                <span>OPEN POSITIONS</span>
+              </div>
+              <div id="orderStatisticsChart"></div>
+            </div>
+            <ul class="p-0 m-0">
+              {% for open in opencrew %}
+              <li class="d-flex mb-4 pb-1">
+                <div class="avatar flex-shrink-0 me-3">
+                  <span class="avatar-initial rounded bg-label-primary"
+                    ><i class="bx bx-mobile-alt"></i
+                  ></span>
+                </div>
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                  <div class="me-2">
+                    <h6 class="mb-0">{{ open.crew_rank }}</h6>
+                    <small class="text-muted">{{ open.crew_company_name }}</small>
+                  </div>
+                  <div class="user-progress">
+                    <small class="fw-semibold">{{ open.crew_status }}</small>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/ Order Statistics -->
+
+      <!-- Expense Overview -->
+      <div class="col-md-6 col-lg-4 order-1 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <div class="card-title mb-0">
+              <h5 class="m-0 me-2">REMINDERS</h5>
+             
+            </div>
+            
+          </div>
+          <div class="card-body">
+            <ul class="p-0 m-0">
+              {% for b in upcoming_reminders %}
+ <!-- Modal 1-->
+ <div
+ class="modal fade"
+ id="modalToggle{{ b.id}}"
+ aria-labelledby="modalToggleLabel"
+ tabindex="-1"
+ style="display: none"
+ aria-hidden="true"
+>
+ <div class="modal-dialog modal-dialog-centered">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="modalToggleLabel">{{ b.candidate }} - Comment</h5>
+       <button
+         type="button"
+         class="btn-close"
+         data-bs-dismiss="modal"
+         aria-label="Close"
+       ></button>
+     </div>
+     
+     <div class="modal-body">{{ b.special_comment}}</div>
+   </div>
+ </div>
+</div>
+<!-- modal ends -->
+
+              <li class="d-flex mb-4 pb-1">
+                <!-- <div class="avatar flex-shrink-0 me-3">
+                  <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
+                </div> -->
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                  <div class="me-2">
+                    <small class="text-muted d-block mb-1">{{b.candidate}}</small>
+                    <!--<small class="text-muted d-block mb-1">{{b.special_comment}}</small>-->
+                    <h6 class="mb-0">{{ b.reminder_date }}</h6>
+                    
+                  </div>
+                  <div class="user-progress d-flex align-items-center gap-1">
+                    <a href=""
+                          class="btn btn-icon btn-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalToggle{{ b.id}}"
+                        >
+                        <i class="bx bx-show"></i>
+                  </a>
+                    
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/ Expense Overview -->
+
+      <!-- Transactions -->
+      <div class="col-md-6 col-lg-4 order-2 mb-4">
+        <div class="card h-100">
+          <div class="card-header d-flex align-items-center justify-content-between pb-0">
+            <div class="card-title mb-0">
+              <h5 class="m-0 me-2">UPCOMING BIRTHDAY</h5>
+              <br>
+            </div>
+            <div class="dropdown">
+              <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                <a class="dropdown-item" href="/view-birthday">View All</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="p-0 m-0">
+              {% for b in upcoming_birthdays %}
+              <li class="d-flex mb-4 pb-1">
+                <!-- <div class="avatar flex-shrink-0 me-3">
+                  <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
+                </div> -->
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                  <div class="me-2">
+                    <small class="text-muted d-block mb-1">{{b.date_birth}}</small>
+                    <h6 class="mb-0">{{b.first_name}} {{b.last_name}}</h6>
+                  </div>
+                  <div class="user-progress d-flex align-items-center gap-1">
+                    <a href="" class="btn btn-primary">Send</a>
+                    
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/ Transactions -->
+    </div>
+  </div>
+  <!-- / Content -->
+{%include 'include/footer.html' %}
+{%include 'include/active-chart.html' %}

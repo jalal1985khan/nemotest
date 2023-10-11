@@ -1,0 +1,83 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">HOSPITAL NAME</label>
+    {{form.hospital_name |attr:"placeholder:Hospital Name" }}
+    
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">DOCTOR NAME</label>
+        {{form.doctor_name|attr:"placeholder:Doctor Name" }}
+        
+        </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">PHONE</label>
+        {{form.hospital_phone|attr:"placeholder:Phone."}}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">EMAIL</label>
+            {{form.hospital_email|attr:"placeholder:Email-Address."}}
+            
+            </div>
+    </div>
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">ADDRESS</label>
+        {{form.hospital_address|attr:"placeholder:Address."}}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">CITY</label>
+            {{form.hospital_city|attr:"placeholder:City." }}
+            </div>
+    </div> 
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">STATE</label>
+        {{form.hospital_state|attr:"placeholder:State."}}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">IMAGE</label>
+            {{form.hospital_image}}
+            
+            </div>
+    </div> 
+
+<div class="row">
+<div class="mb-3 col-md-12 mt-4">
+    <input type="hidden" name="url" value="/view-hospital/{{pre_url}}">
+<button type="submit" class="btn btn-primary mt-1">ADD HOSPITAL</button>
+</div>
+</div>
+</form>
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

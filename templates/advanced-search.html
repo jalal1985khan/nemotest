@@ -1,0 +1,304 @@
+{% include "header.html" %}
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="box box-danger">
+        <div class="box-header">
+          <h3 class="box-title">Advanced Search</h3>
+        </div>
+        <div class="box-body">
+
+          
+          <form method="GET" action="">
+      <div class="row">
+        <div class="col-md-2">
+         <div class="form-group">
+            <label for="exampleInputEmail1">Nemo ID</label>
+            {{ filter.form.id }}
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+             <label for="exampleInputEmail1">Name</label>
+             {{ filter.form.first_name }}
+           </div>
+         </div>
+         <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Rank</label>
+            <select class="form-control select2" style="width: 100%;" name="rank" id="id_rank">
+              <option selected="selected" value="">-----</option>
+              {% for r in rank %}
+                <option value="{{ r.rank_name }}" >{{ r.rank_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Vessel</label>
+            <select class="form-control select2" style="width: 100%;" name="vessel_type" id="vessel_type">
+              <option selected="selected" value="">-----</option>
+              {% for v in vessel %}
+              <option value="{{ v.vessel_name }}">{{ v.vessel_name }}</option>
+            {% endfor %}
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Experience</label>
+            <select class="form-control select2" style="width: 100%;" name="experience" id="id_experience">
+              <option selected="selected" value="">-----</option>
+              {% for e in exp %}
+              <option value="{{ e.experience }}">{{ e.experience }}</option>
+            {% endfor %}
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Licence</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Status</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+             <label for="exampleInputEmail1">Available From</label>
+             {{ filter.form.availibity }}
+           </div>
+         </div>
+         <!-- /.col -->
+         
+         <div class="col-md-2">
+          <div class="form-group">
+             <label for="exampleInputEmail1">Available To</label>
+             {{ filter.form.availibityto }}
+           </div>
+         </div>
+         <!-- /.col -->
+         <div class="col-md-2">
+          <div class="form-group">
+            <label>Age Above</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Age Below</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>License Country</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Zone</label>
+            
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">-----</option>
+              <option>EAST</option>
+              <option>WEST</option>
+              <option>NORTH</option>
+              <option>SOUTH</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Business Type</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Documents</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-2">
+          <div class="form-group">
+             <label for="exampleInputEmail1">Document Number</label>
+             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+           </div>
+         </div>
+         <!-- /.col -->
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Group</label>
+            <select class="form-control select2" style="width: 100%;">
+              <option selected="selected">Alabama</option>
+              <option>Alaska</option>
+              <option>California</option>
+              <option>Delaware</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Washington</option>
+            </select>
+          </div>
+          <!-- /.form-group -->
+        </div>
+        <!-- /.col -->
+
+        <button type="submit" class="btn btn-primary">Search Candidate</button>      
+      </div>
+      <!-- /.row -->
+    </form>
+
+
+    </div></div>
+
+
+
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Lists Candidate</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table  class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              
+              <th>Nemo ID</th>
+              <th>Full Name</th>
+              <th>Rank</th>
+              <th>Vessel</th>
+              <th>Mobile</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for candidate in page_obj %}              
+            <tr>
+              
+              <td>{{ candidate.id }}</td>
+              <td>{{ candidate.first_name }} {{ candidate.last_name }}</td>
+              <td>{{ candidate.rank }}</td>
+              <td>{{ candidate.vessel_type }}</td>
+              <td>{{ candidate.mobile1 }}</td>
+              <td>{{ candidate.date_birth}}</td>
+              <td>
+                <a href="{% url 'edit-candidate' candidate.id %}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            {% endfor%}
+          </tbody>
+        </table>
+        
+        
+          {% include 'pagination.html' %}
+      
+
+
+
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  {% include "footer.html" %}

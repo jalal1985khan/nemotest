@@ -1,0 +1,206 @@
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2023 Nautilus Shipping India Pvt Lt.</strong> All rights
+    reserved.
+  </footer>
+
+</div>
+<!-- ./wrapper -->
+<script>
+  new Autocomplete('#autocomplete', {
+    search: input => {
+    console.log(input)
+    const url =`/getsearch/?search=${input}`
+    return new Promise(resolve => {
+      fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.payload)
+        resolve(data.payload)
+      })
+    })
+    },
+   
+    renderResult: (result, props) => `
+    <li ${props}>
+      <div class="wiki-title">
+        ${result.name}
+      </div>
+    </li>
+  `,
+  
+  // Wikipedia returns a format like this:
+  //
+  // {
+  //   pageid: 12345,
+  //   title: 'Article title',
+  //   ...
+  // }
+  // 
+  // We want to display the title
+  getResultValue: result => result.name,
+})
+
+ </script>
+<!-- jQuery 3 -->
+<script src="/staticfiles/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/staticfiles/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/staticfiles/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/staticfiles/dist/js/adminlte.min.js"></script>
+<!-- Sparkline -->
+<script src="/staticfiles/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap  -->
+<script src="/staticfiles/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/staticfiles/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll -->
+<script src="/staticfiles/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS -->
+<script src="/staticfiles/bower_components/chart.js/Chart.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/staticfiles/dist/js/pages/dashboard2.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/staticfiles/dist/js/demo.js"></script>
+
+<!-- DataTables -->
+<script src="/staticfiles/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/staticfiles/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="/staticfiles/plugins/iCheck/icheck.min.js"></script>
+<script src="/staticfiles/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script>
+    $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+     $('#id_availibity').datepicker({
+      autoclose: true
+    })
+    $('#id_date_birth').datepicker({
+      autoclose: true
+    })
+    $('#id_availibityto').datepicker({
+      autoclose: true
+    })
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass   : 'iradio_minimal-blue'
+    })
+
+  
+  </script>
+
+  <script type="text/javascript">
+      function displayTime(){
+        let dateTime= new Date();
+        let hrs=dateTime.getHours();
+        let mins=dateTime.getMinutes();
+        let sec=dateTime.getSeconds();
+        
+        if(hrs>12){
+            document.getElementById('ampm').innerHTML="PM";
+            hrs-=12; 
+        }
+        document.getElementById('hrs').innerHTML= padzero(hrs);
+        document.getElementById('mins').innerHTML= padzero(mins);
+        document.getElementById('sec').innerHTML=padzero(sec);
+    
+    }
+    
+    function padzero(num){
+        return num<10? "0"+ num:num
+    }
+    setInterval(displayTime,500)
+
+
+
+
+toast = document.querySelector(".toaster");
+(closeIcon = document.querySelector(".close")),
+(progress = document.querySelector(".progress"));
+
+timer1 = setTimeout(() => {
+  toast.classList.remove("active");
+}, 5000); //1s = 1000 milliseconds
+timer2 = setTimeout(() => {
+  progress.classList.remove("active");
+}, 5300);
+
+
+closeIcon.addEventListener("click", () => {
+  toast.classList.remove("active");
+
+  setTimeout(() => {
+    progress.classList.remove("active");
+  }, 300);
+
+  clearTimeout(timer1);
+  clearTimeout(timer2);
+
+});
+
+ </script> 
+
+{% if notifycount > 0 %}
+ <script>
+  $(document).ready(function(){
+    setInterval(function(){
+  $.ajax({
+    url:'{% url 'getnotify' %}',
+    dataType:'json',
+    success:function(res){
+      __head='';
+      //__json=$.parseJSON(res.data);
+      $(".total-notify").text(res.totalUnread);
+      //$(".total-notify").text(res.time);
+      $(".total-count").text('You have '+ res.totalUnread +' notifications');
+      $.each(res.data, function(index,d){
+        __head +='<li><a class="markreadbtn" data-index="'+ d.pk +'" data-notify="'+ d.pk +'"><i class="fa fa-users text-red"></i>'+ d.added_by_user +' '+ d.notify_details +'</a></li>'
+      });
+     $(".header-notify").html(__head);
+
+    }
+  });
+
+},1000);
+// read notification
+$(document).on("click",".markreadbtn", function(){
+ var _index=$(this).attr('data-index')
+ var _notify=$(this).attr('data-notify')
+
+      $.ajax({
+        url:'{% url 'get_read_notify' %}',
+        data:{
+          notify:_notify
+        },
+        dataType:'json',
+        success:function(res){
+        console.log(res);
+        if(res.bool==true){
+          
+        }
+        }
+
+      })
+
+
+})
+//end
+
+  });
+ </script>
+ {% endif %}
+</body>
+</html>

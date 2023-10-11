@@ -1,0 +1,339 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+
+  <!--{{ form.as_p }}-->
+
+ <!--from starts here-->   
+ <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    
+ <div class="box-body">
+<div class="row">
+
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">First Name *</label>
+     {{form.first_name}}
+ </div>
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Last Name *</label>
+      {{form.last_name}}
+  </div>
+  <!-- /.col -->
+  <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Rank</label>
+     <select id="defaultSelect" class="form-select" style="width: 100%;" name="rank">
+       <option selected="selected">-----</option>
+       {% for ranks in rank %}
+       <option {% if form.rank.value == ranks.rank_name  %} selected='selected' {% endif %} >{{ ranks.rank_name }}</option>
+       {% endfor %}
+     </select>
+ </div>
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Availability</label>
+        {{form.availibity |attr:"type:date"}}
+    </div>
+    <!-- /.col -->
+ 
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Nationality</label>
+     <select id="defaultSelect" class="form-select" style="width: 100%;" name="nationality">
+       <option selected="selected">-----</option>
+       {% for country in country %}
+       <option {% if form.nationality.value == country.country_name  %} selected='selected' {% endif %}>{{ country.country_name }}</option>
+       {% endfor %}
+     </select>
+ </div>
+ <!-- /.col -->
+ 
+ <div class="mb-3 col-md-6">
+ <label class="form-label" for="exampleInputEmail1">Marital Status</label>
+     <select id="defaultSelect" class="form-select" style="width: 100%;" name="marital_status">
+       <option selected="selected">-----</option>
+       <option {% if form.marital_status.value == 'SINGLE'  %} selected='selected' {% endif %} >SINGLE</option>
+       <option {% if form.marital_status.value == 'MARRIED'  %} selected='selected' {% endif %} >MARRIED</option>
+       <option {% if form.marital_status.value == 'DIVORCED'  %} selected='selected' {% endif %} >DIVORCED</option>
+       <option {% if form.marital_status.value == 'WIDOW'  %} selected='selected' {% endif %} >WIDOW</option>
+     </select>
+ </div>
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Date of birth *</label>
+        {{form.date_birth  |attr:"type:date"}}
+        <!--<input type="text" name="date_birth" id="date_birth">-->
+        {{form.birth_month|attr:"type:text"}}
+        {{form.count_birth|attr:"type:text"}}
+    </div>
+    <!-- /.col -->   
+<div class="mb-3 col-md-6">
+        <label class="form-label" for="exampleInputEmail1">Birth Place</label>
+        {{form.birth_place}}
+    </div>
+    <!-- /.col -->              
+<div class="mb-3 col-md-6">
+        <label class="form-label" for="exampleInputEmail1">Worked with us</label>
+     <select id="defaultSelect" class="form-select" style="width: 100%;" name="worked_with_us">
+       <option selected="selected">-----</option>
+       <option {% if form.worked_with_us.value == 'Yes'  %} selected='selected' {% endif %} >Yes</option>
+       <option {% if form.worked_with_us.value == 'No'  %} selected='selected' {% endif %} >No</option>
+     </select>
+ </div>
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Vessel Type</label>
+     <select id="defaultSelect" class="form-select" style="width: 100%;" name="vessel_type">
+       <option selected="selected">-----</option>
+       {% for vessels in vessel %}
+       <option {% if form.vessel_type.value == vessels.vessel_name  %} selected='selected' {% endif %}>{{ vessels.vessel_name }}</option>
+       {% endfor %}
+     </select>
+ </div>
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Experience</label>
+       <select id="defaultSelect" class="form-select" style="width: 100%;" name="experience">
+         <option selected="selected">-----</option>
+         {% for exp in experience %}
+         <option {% if form.experience.value == exp.experience  %} selected='selected' {% endif %}>{{ exp.experience }}</option>
+         {% endfor %}
+       </select>
+   </div>
+   <!-- /.col -->  
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Zone</label>
+       <select id="defaultSelect" class="form-select" style="width: 100%;" name="zone">
+         <option selected="selected">-----</option>
+         <option {% if form.zone.value == 'EAST'  %} selected='selected' {% endif %} >EAST</option>
+         <option {% if form.zone.value == 'WEST'  %} selected='selected' {% endif %} >WEST</option>
+         <option {% if form.zone.value == 'NORTH'  %} selected='selected' {% endif %} >NORTH</option>
+         <option {% if form.zone.value == 'SOUTH'  %} selected='selected' {% endif %} >SOUTH</option>
+       </select>
+   </div>
+   <!-- /.col -->
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Grade</label>
+       <select id="defaultSelect" class="form-select" style="width: 100%;" name="grade">
+         <option selected="selected">-----</option>
+         {% for gd in grade %}
+         <option {% if form.grade.value == gd.grade_name  %} selected='selected' {% endif %} >{{ gd.grade_name }}</option>
+         {% endfor %}
+       </select>
+   </div>
+   <!-- /.col -->                            
+
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Boiler Suit Size</label>
+      {{form.boiler_suit_size}}
+  </div>
+  <!-- /.col -->
+  
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Safety Shoe Size</label>
+      {{form.safety_shoe_size}}
+  </div>
+  <!-- /.col -->
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Height (cm)</label>
+        {{form.height}}
+    </div>
+    <!-- /.col -->
+<div class="mb-3 col-md-6">
+        <label class="form-label" for="exampleInputEmail1">Weight (kgs)</label>
+        {{form.weight}}
+    </div>
+    <!-- /.col -->           
+
+<div class="mb-3 col-md-6">
+        <label class="form-label" for="exampleInputEmail1">License Country</label>
+     <select id="defaultSelect" class="form-select" style="width: 100%;" name="license_country">
+       <option selected="selected">-----</option>
+       {% for cont in country %}
+       <option {% if form.license_country.value == cont.country_name  %} selected='selected' {% endif %} >{{ cont.country_name }}</option>
+       {% endfor %}
+     </select>
+ </div>
+ <!-- /.col -->
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">INDoS Number</label>
+      {{form.INDoS_Number}}
+</div>
+<div class="mb-3 col-md-6">
+  <label class="form-label" for="exampleInputEmail1">Candidate Status</label>
+    {{form.status|attr:'class:form-select'}}
+</div>
+<!-- /.row -->
+<div class="mb-3 col-md-6">
+  <label class="form-label" for="exampleInputEmail1">Group</label>
+    {{form.candidate_groups|attr:'class:form-select'}}
+</div>
+<div class="mb-3 col-md-6">
+  <label class="form-label" for="exampleInputEmail1">Vendor</label>
+  {{form.vendor|attr:'class:form-control my-vendors'|attr:'type:hidden'}}
+  <select  class="form-select" style="width: 100%;" name="vendors" id="vendors">
+    <option selected="selected">-----</option>
+    {% for vt in vendor %}
+    <option value="{{ vt.username }}" >{{ vt.username }}</option>
+    {% endfor %}
+    {% for cont in country %}
+    
+    {% endfor %}
+  </select>
+
+</div>
+<!-- /.row -->
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Photo</label>
+    {{form.profile}}
+</div>
+
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Resume</label>
+       {{form.resume}}
+   </div>
+
+</div>
+
+{{form.added_by_user}}
+
+
+<div class="row">
+<div class="col-sm-6">
+<!-- Info boxes -->
+<div class="box box-danger">
+ <div class="box-header">
+<h5 class="card-header">Permanent Address</h5>
+ </div>
+ <div class="box-body">
+<div class="row">
+<div class="mb-3 col-md-12">
+<label class="form-label" for="exampleInputEmail1">Address</label>
+             {{form.permanent_address}}
+</div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">City</label>
+                {{form.permanent_city}}
+</div>
+            <!-- /.col -->   
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">State</label>
+                {{form.permanent_state}}
+            </div>
+<div class="mb-3 col-md-12">
+<label class="form-label" for="exampleInputEmail1">Pincode</label>
+                {{form.permanent_pincode}}
+            </div>
+            <!-- /.col -->  
+
+     </div>
+ </div>
+</div>
+</div>
+<!--col sm 6 start-->
+
+<div class="col-sm-6">
+ <!-- Info boxes -->
+ <div class="box box-danger">
+   <div class="box-header">
+     <h5 class="card-header">Temporary Address</h5>
+   </div>
+   <div class="box-body">
+       <div class="row">
+<div class="mb-3 col-md-12">
+<label class="form-label" for="exampleInputEmail1">Address</label>
+               {{form.temp_address}}
+           </div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">City</label>
+                  {{form.temp_city}}
+</div>
+              <!-- /.col -->   
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">State</label>
+                  {{form.temp_state}}
+              </div>
+<div class="mb-3 col-md-12">
+<label class="form-label" for="exampleInputEmail1">Pincode</label>
+                  {{form.temp_pincode}}
+</div>
+
+
+       </div>
+
+   </div>
+</div></div>
+
+
+<!--col sm 6 end-->
+<!-- mobile details start-->
+<div class="row">
+<div class="col-sm-12">    
+<!-- Info boxes -->
+ <div class="box box-danger">
+     <div class="box-header">
+       <h5 class="card-header">Contact Details</h5>
+     </div>
+     <div class="box-body">
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Mobile</label>
+        {{form.mobile1}}
+</div>
+    <!-- /.col --> 
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Mobile</label>
+        {{form.mobile2}}
+    </div>
+    <!-- /.col --> 
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Landline</label>
+        {{form.landline}}
+    </div>
+    <!-- /.col --> 
+</div>
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Email</label>
+        {{form.email1}}
+</div>
+    <!-- /.col --> 
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Email</label>
+        {{form.email2}}
+</div>
+    <!-- /.col --> 
+</div>
+<div class="row">
+    <div class="mb-3 col-md-6 mt-4">
+        <button type="submit" class="btn btn-primary mt-1">ADD CANDIDATE</button>
+    </div>    
+</div>    
+</div>
+ </div>
+</div>
+</div>
+</form>
+ <!--from end here-->
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

@@ -1,0 +1,107 @@
+{% include 'header.html' %}
+
+    <!-- Main content -->
+    <section class="content">
+
+<div class="row">
+    <div class="col-md-4">
+
+        <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Add Document</h3>
+            </div>
+            <!-- /.box-header -->
+<div class="box-body">
+  <form method="POST"  action="">  
+    {% csrf_token %}
+  <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Document Name</label>
+            {{ form.document_type }}
+         </div>
+       </div>
+       <!-- /.col -->
+
+      <!-- /.col -->
+      <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Hide Expiry Date</label>
+           {{ form.hide_expiry_date }}
+         </div>
+       </div>
+       <!-- /.col -->
+       
+      </div>
+      <!-- /.col -->
+      <button type="submit" class="btn btn-primary">Add Document</button>  
+    </div>
+    </div>
+  </form>
+  </div> 
+    <div class="col-md-8">
+
+ <!-- Info boxes -->
+ <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Lists Document</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Sno</th>
+          <th>Name Document</th>
+          <th>Hide Expiry Date</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for doc in document %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ doc.document_type }}</td>
+          <td>{{ doc.hide_expiry_date }}</td>
+          <td>
+            <a href="" class="btn btn-primary">edit</a>
+            <a href="" class="btn btn-danger">delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+        
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+
+
+</div>
+
+
+    </div>
+
+
+</div>    
+
+
+
+
+      <!-- Info boxes -->
+      
+
+<!-- end here-->
+
+     
+
+<!-- form end here-->
+
+<!-- end body table here-->
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

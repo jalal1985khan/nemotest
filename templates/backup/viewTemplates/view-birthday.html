@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+    <section class="content">
+        {{ date }}
+        {{ check }}
+{% for birthdays in birthday %}
+
+{{ birthdays.first_name }}
+
+
+{% endfor %}
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

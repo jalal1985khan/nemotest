@@ -1,0 +1,98 @@
+<style>
+    .button-align{
+    float: right;
+    padding-right: 21px;
+    }
+    </style>
+    <div class="row">
+    <div class="col-md-8">
+    <div class="mt-3 mx-4 row">
+    {% if '/view-contract' in request.path %}
+      <!-- Dropdown with icon -->
+      <div class="col-lg-4 col-sm-6 col-12">
+        <small class="text-light fw-semibold">EDIT CONTRACT [{{ c.first_name }} {{ c.last_name }}]</small>
+        <div class="demo-inline-spacing">
+          <div class="btn-group" id="dropdown-icon-demo">
+            <button
+              type="button"
+              class="btn btn-primary dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bx bx-menu"></i> EDIT CONTRACT
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+              </li>
+              <li>
+                <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+              </li>
+              <li>
+                <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+              </li>
+              <li>
+                <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+              </li>
+              
+              <li>
+                <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+              </li>
+              <li>
+                <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+              </li>
+              <li>
+                <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+              </li>
+              <li>
+                <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                  ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/ Dropdown with icon -->
+    {% endif %}
+  
+  
+    </div>
+    </div>
+  
+  <!-- ADD SECTION START HERE -->
+  
+    <div class="col-md-4">
+        <div class="mt-3 button-align">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            {% if '/view-contract' in request.path %}
+            <div class="demo-inline-spacing">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bx bx-dots-vertical-rounded"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" style="">
+                  <li><a class="dropdown-item" href="{% url 'edit-contract' m.id %}">EDIT CONTRACT</a></li>
+                  <li><a class="dropdown-item" href="{% url 'pdf-contract' c.pk %}">GENERATE PDF</a></li>
+                  <!--<li><a class="dropdown-item" href="/view-medical/{{pk}}">VIEW</a></li>-->
+                  <!--<li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>-->
+                  <!--<li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>-->
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <li><a class="dropdown-item btn-danger" href="{% url 'delete-contract' m.id %}">DELETE</a></li>
+<!--                    <button class="dropdown-item  text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>-->
+                </ul>
+              </div>
+            </div>
+            {% endif %}          
+          </div>
+        </div>
+      </div>
+    </div>

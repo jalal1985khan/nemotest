@@ -1,0 +1,72 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+<section class="content">
+<div class="row"> 
+<div class="col-md-12">
+
+ <!-- Info boxes -->
+ <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Lists Vendor</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Sno</th>
+          <th>Name Document</th>
+          <th>Hide Expiry Date</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for doc in crews %}
+        <tr>
+          
+<td>{{ doc.crew_rank }}</td>
+<td>{{ doc.crew_company_name}}</td>
+<td>{{ doc.crew_vessel}}</td>
+<td>{{ doc.crew_vsl_name}}</td>
+<td>{{ doc.crew_trading}}</td>
+<td>{{ doc.crew_wages}}</td>
+<td>{{ doc.crew_doj}}</td>
+<td>{{ doc.crew_immediate}}</td>
+<td>{{ doc.crew_other_info}}</td>
+<td>{{ doc.crew_status}}</td>
+<td>{{ doc.crew_created_by}}</td>
+          <td>
+            <a href="{% url 'edit-vendor' doc.id %}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+            <a href="{% url 'delete-vendor' doc.id %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+        
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+
+
+</div>
+
+
+    </div>
+
+
+</div>    
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

@@ -1,0 +1,47 @@
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [{% for item in county %} '{{ item.rank }}', {% endfor %}],
+        datasets: [{
+          data: [{% for item in county %} '{{ item.count }}', {% endfor %}],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+  <script>
+    const ctxx = document.getElementById('myAction');
+    new Chart(ctxx, {
+      type: 'pie',
+      data: {
+        labels: [{% for item in crew %} '{{ item.crew_status }}', {% endfor %}],
+        datasets: [{
+          data: [{% for item in crewplanner %} '{{ item.count }}', {% endfor %}],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>

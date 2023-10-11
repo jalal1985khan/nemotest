@@ -1,0 +1,36 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+<section class="error-content import">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Import/ Export</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <form method="POST" action="/crewplanner-import/" enctype="multipart/form-data">
+          {% csrf_token %}
+        <div class="box-body">
+<div class="col-md-10">
+<div class="form-group">
+  <label for="exampleInputFile">File input</label>
+  
+  <input type="file" name="files" class="form-control">
+  <p class="help-block">Upload and download the crew planner Module</p>
+</div>
+</div>
+<div class="col-md-1 pt-10">
+<button type="submit" class="btn btn-danger">Upload</button>
+</div>  
+           
+          
+          
+        </div>
+        <!-- /.box-body -->
+
+      </form>
+      </div>
+    </div>
+
+</section>
+</div>
+{% include 'footer.html' %}

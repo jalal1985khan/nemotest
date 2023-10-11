@@ -1,0 +1,45 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+<section class="content">
+<div class="row">
+<div class="col-md-12">
+
+        <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Edit Vendor</h3>
+            </div>
+            <!-- /.box-header -->
+<div class="box-body">
+  <form method="POST"  action="">  
+    {% csrf_token %}
+  <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Vendor Name</label>
+            {{ form.vendor_name }}
+         </div>
+       </div>
+       <!-- /.col -->
+
+      <!-- /.col -->
+      <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Vendor Address</label>
+           {{ form.vendor_address }}
+         </div>
+       </div>
+       <!-- /.col -->
+       
+      </div>
+      <!-- /.col -->
+      <button type="submit" class="btn btn-primary">Edit Vendor</button>  
+    </div>
+    </div>
+  </form>
+  </div> 
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

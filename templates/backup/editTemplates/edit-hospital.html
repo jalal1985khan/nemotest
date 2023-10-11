@@ -1,0 +1,86 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Edit Hospital</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Hospital Name</label>
+       {{form.hospital_name}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Doctor Name</label>
+       {{form.doctor_name}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Phone</label>
+       {{form.hospital_phone}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Email</label>
+       {{form.hospital_email}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Address</label>
+       {{form.hospital_address}}
+     </div>
+   </div>
+   <!-- /.col --> 
+
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">City</label>
+       {{form.hospital_city}}
+     </div>
+   </div>
+   <!-- /.col -->
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">State</label>
+       {{form.hospital_state}}
+     </div>
+   </div>
+   <!-- /.col -->  
+
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Image</label>
+       {{form.hospital_image}}
+     </div>
+   </div>
+   <!-- /.col -->  
+    
+  </div>
+  <!-- /.col -->
+  <button type="submit" class="btn btn-primary">Edit Hospital</button>
+</div>
+
+</form>
+</div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

@@ -1,0 +1,84 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Bordered Table -->
+              <div class="card">
+                {% include 'include/buttons.html' %}
+                <div class="card-body">
+                  <form action="{% url 'del-candidate' %}" method="POST" id="myForm">
+                    {% csrf_token %}
+                  
+                  <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered" id="myTable">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Nemo ID</th>
+                          <th>Full Name</th>
+                          <th>Rank</th>
+                          <th>Vessel</th>
+                          <th>Mobile</th>
+                          <th>Age</th>
+                          <th>Action</th>
+            
+                        </tr>
+                      </thead>
+                      <tbody>
+                      
+                         {% for c in page_obj %}
+                        
+                         <tr>
+                          <td> 
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="selected_ids" value="{{c.id}}" id="instance_delete" >
+                              </div></td>
+                          <td>{{ c.id }}</td>
+                          <td>{{ c.first_name }} {{ c.last_name }}</td>
+                          <td>{{ c.rank }}</td>
+                          <td>{{ c.vessel_type }}</td>
+                          <td>{{ c.mobile1 }}</td>
+                          <td>{{ c.date_birth}}</td>
+                          <!--<td >{{ c.port_agent_country }}</td>-->
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                type="button"
+                                class="btn p-0 dropdown-toggle hide-arrow"
+                                data-bs-toggle="dropdown"
+                              >
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url "edit-new-candidate" c.id %}"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="{% url "delete-candidate" c.id %}"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                         {% endfor %}
+                        
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                </form>
+                </div>
+                {% include 'include/pagination.html' %}
+              </div>
+              <!--/ Bordered Table -->
+
+            </div>
+            <!-- / Content -->
+{% include 'model/company-model.html' %} 
+          </div>
+
+
+{% include 'include/footer.html' %}

@@ -1,0 +1,802 @@
+<style>
+  .button-align{
+  float: right;
+  padding-right: 21px;
+  }
+  </style>
+  <div class="row">
+  <div class="col-md-8">
+  <div class="mt-3 mx-4 row">
+    {% if '/edit-new-candidate' in request.path %}
+    <!-- Dropdown with icon -->
+    <div class="col-lg-4 col-sm-6 col-12">
+      <small class="text-light fw-semibold">EDIT CANDIDATE [{{ c.first_name }} {{ c.last_name }}]</small>
+      <div class="demo-inline-spacing">
+        <div class="btn-group" id="dropdown-icon-demo">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bx bx-menu"></i> EDIT CANDIDATE
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+            </li>
+            <li>
+              <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+            </li>
+            <li>
+              <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+            </li>
+            <li>
+              <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+            </li>
+            
+            <li>
+              <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+            </li>
+            <li>
+              <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+            </li>
+            <li>
+              <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+            </li>
+            <li>
+              <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Dropdown with icon -->
+    {% endif %}
+{% if '/add-medical' in request.path %}
+<div class="col-md-5">
+  <input class="form-control" type="search" placeholder="Search..." id="myInputTextField">
+</div> 
+{% endif %}
+
+{% if '/view-candidate-document' in request.path %}
+    <!-- Dropdown with icon -->
+    <div class="col-lg-4 col-sm-6 col-12">
+      <small class="text-light fw-semibold">EDIT DOCUMENT [{{ c.first_name }} {{ c.last_name }}]</small>
+      <div class="demo-inline-spacing">
+        <div class="btn-group" id="dropdown-icon-demo">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bx bx-menu"></i> EDIT DOCUMENT
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+            </li>
+            <li>
+              <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+            </li>
+            <li>
+              <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+            </li>
+            <li>
+              <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+            </li>
+            
+            <li>
+              <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+            </li>
+            <li>
+              <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+            </li>
+            <li>
+              <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+            </li>
+            <li>
+              <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Dropdown with icon -->
+  {% endif %}
+
+  {% if '/view-contract' in request.path %}
+    <!-- Dropdown with icon -->
+    <div class="col-lg-4 col-sm-6 col-12">
+      <small class="text-light fw-semibold">EDIT CONTRACT1 [{{ c.first_name }} {{ c.last_name }}]</small>
+      <div class="demo-inline-spacing">
+        <div class="btn-group" id="dropdown-icon-demo">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bx bx-menu"></i> EDIT CONTRACT
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+            </li>
+            <li>
+              <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+            </li>
+            <li>
+              <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+            </li>
+            <li>
+              <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+            </li>
+            
+            <li>
+              <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+            </li>
+            <li>
+              <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+            </li>
+            <li>
+              <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+            </li>
+            <li>
+              <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Dropdown with icon -->
+  {% endif %}
+
+  {% if '/view-nkd' in request.path %}
+    <!-- Dropdown with icon -->
+    <div class="col-lg-4 col-sm-6 col-12">
+      <small class="text-light fw-semibold">EDIT NKD [ {{ c.first_name }} {{ c.last_name }}]</small>
+      <div class="demo-inline-spacing">
+        <div class="btn-group" id="dropdown-icon-demo">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bx bx-menu"></i> EDIT NKD
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+            </li>
+            <li>
+              <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+            </li>
+            <li>
+              <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+            </li>
+            <li>
+              <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+            </li>
+            
+            <li>
+              <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+            </li>
+            <li>
+              <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+            </li>
+            <li>
+              <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+            </li>
+            <li>
+              <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Dropdown with icon -->
+  {% endif %}
+  
+{% if '/view-medical' in request.path %}
+    <!-- Dropdown with icon -->
+    <div class="col-lg-4 col-sm-6 col-12">
+      <small class="text-light fw-semibold">EDIT MEDICAL [{{ c.first_name}} {{ c.last_name}}]</small>
+      <div class="demo-inline-spacing">
+        <div class="btn-group" id="dropdown-icon-demo">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bx bx-menu"></i> EDIT MEDICAL
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+            </li>
+            <li>
+              <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+            </li>
+            <li>
+              <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+            </li>
+            <li>
+              <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+            </li>
+            
+            <li>
+              <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+            </li>
+            <li>
+              <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+            </li>
+            <li>
+              <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+            </li>
+            <li>
+              <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Dropdown with icon -->
+  {% endif %}
+  {% if '/view-travel' in request.path %}
+    <!-- Dropdown with icon -->
+    <div class="col-lg-4 col-sm-6 col-12">
+      <small class="text-light fw-semibold">EDIT TRAVEL [ {{ c.first_name}} {{ c.last_name}}]</small>
+      <div class="demo-inline-spacing">
+        <div class="btn-group" id="dropdown-icon-demo">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bx bx-menu"></i> EDIT TRAVEL
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+            </li>
+            <li>
+              <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+            </li>
+            <li>
+              <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+            </li>
+            <li>
+              <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+            </li>
+            
+            <li>
+              <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+            </li>
+            <li>
+              <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+            </li>
+            <li>
+              <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+            </li>
+            <li>
+              <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+                ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Dropdown with icon -->
+  {% endif %}
+  {% if '/view-bank' in request.path %}
+  <!-- Dropdown with icon -->
+  <div class="col-lg-4 col-sm-6 col-12">
+    <small class="text-light fw-semibold">EDIT BANK [{{ c.first_name}} {{ c.last_name}}]</small>
+    <div class="demo-inline-spacing">
+      <div class="btn-group" id="dropdown-icon-demo">
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="bx bx-menu"></i> EDIT BANK
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="/edit-new-candidate/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>PERSONNEL</a>
+          </li>
+          <li>
+            <a href="/view-discussion/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DISCUSSION</a>
+          </li>
+          <li>
+            <a href="/view-contract/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>CONTRACT</a>
+          </li>
+          <li>
+            <a href="/view-candidate-document/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>DOCUMENT</a>
+          </li>
+          
+          <li>
+            <a href="/view-bank/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>BANK</a>
+          </li>
+          <li>
+            <a href="/view-travel/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>TRAVEL</a>
+          </li>
+          <li>
+            <a href="/view-medical/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>MEDICALS</a>
+          </li>
+          <li>
+            <a href="/view-nkd/{{pk}}/" class="dropdown-item d-flex align-items-center"
+              ><i class="bx bx-chevron-right scaleX-n1-rtl"></i>NKD</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--/ Dropdown with icon -->
+{% endif %}
+
+  </div>
+  </div>
+
+<!-- ADD SECTION START HERE -->
+
+  <div class="col-md-4">
+      <div class="mt-3 button-align">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          {% if '/edit-company' in request.path or  '/view-company' in request.path or  '/add-company' in request.path or '/company-import' in request.path or '/delete-company' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-company">Add</a></li>
+                <li><a class="dropdown-item" href="/view-company">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/company-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-vessel' in request.path or  '/view-vessel' in request.path or  '/add-vessel' in request.path or '/vessel-import' in request.path or '/delete-vessel' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-vessel">Add</a></li>
+                <li><a class="dropdown-item" href="/view-vessel">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/vessel-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-vsl' in request.path or  '/view-vsl' in request.path or  '/add-vsl' in request.path or '/vsl-import' in request.path or '/delete-vsl' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-vsl">Add</a></li>
+                <li><a class="dropdown-item" href="/view-vsl">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/vsl-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-experience' in request.path or  '/view-experience' in request.path or  '/add-experience' in request.path or '/experience-import' in request.path or '/delete-experience' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-experience">Add</a></li>
+                <li><a class="dropdown-item" href="/view-experience">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/experience-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-rank' in request.path or  '/view-rank' in request.path or  '/add-rank' in request.path or '/rank-import' in request.path or '/delete-rank' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-rank">Add</a></li>
+                <li><a class="dropdown-item" href="/view-rank">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/rank-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-grade' in request.path or  '/view-grade' in request.path or  '/add-grade' in request.path or '/grade-import' in request.path or '/delete-grade' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-grade">Add</a></li>
+                <li><a class="dropdown-item" href="/view-grade">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/grade-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-port' in request.path or  '/view-port' in request.path or  '/add-port' in request.path or '/port-import' in request.path or '/delete-port' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-port">Add</a></li>
+                <li><a class="dropdown-item" href="/view-port">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/port-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-agentport' in request.path or  '/view-agentport' in request.path or  '/add-agentport' in request.path or '/agentport-import/' in request.path or '/delete-agentport' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-agentport">Add</a></li>
+                <li><a class="dropdown-item" href="/view-agentport">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/agentport-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-hospital' in request.path or  '/view-hospital' in request.path or  '/add-hospital' in request.path or '/hospital-import' in request.path or '/delete-hospital' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-hospital">Add</a></li>
+                <li><a class="dropdown-item" href="/view-hospital">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/hospital-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-document' in request.path or  '/view-document' in request.path or  '/add-document' in request.path or '/document-import' in request.path or '/delete-document' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-document">Add</a></li>
+                <li><a class="dropdown-item" href="/view-document">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/country-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+  
+          {% if '/edit-vendor' in request.path or  '/view-vendor' in request.path or  '/add-vendor' in request.path or '/vendor-import' in request.path or '/delete-vendor' in request.path %}
+          <a href="/add-vendor" class="btn btn-outline-primary">ADD</a>
+          <a href="/view-vendor" class="btn btn-outline-primary">VIEW</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</button>
+          <a href="/vendor-export" type="button" class="btn btn-outline-primary">DOWNLOAD</a>
+          
+          {% endif %}
+          {% if '/edit-country' in request.path or  '/view-country' in request.path or  '/add-country' in request.path or '/country-import' in request.path or '/delete-country' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-country">Add</a></li>
+                <li><a class="dropdown-item" href="/view-country">View</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">Upload</a></li>
+                <li><a class="dropdown-item" href="/country-export">Download</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+<!-- Travel Start-->
+{% if '/view-travel' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-travel/{{pk}}">ADD TRAVEL</a></li>
+                <!--<li><a class="dropdown-item" href="/view-medical/{{pk}}">VIEW</a></li>-->
+                <!--<li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>-->
+                <!--<li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>-->
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if '/view-contract' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-contract/{{pk}}">ADD CONTRACT</a></li>
+                <!--<li><a class="dropdown-item" href="/view-medical/{{pk}}">VIEW</a></li>-->
+                <!--<li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>-->
+                <!--<li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>-->
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}          
+<!-- bank details start-->
+{% if '/view-bank' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-bank/{{pk}}">ADD BANK</a></li>
+                <!--<li><a class="dropdown-item" href="/view-medical/{{pk}}">VIEW</a></li>-->
+                <!--<li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>-->
+                <!--<li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>-->
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          <!-- medical start -->
+          {% if '/view-medical' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-medical/{{pk}}">ADD MEDICAL</a></li>
+                <!--<li><a class="dropdown-item" href="/view-medical/{{pk}}">VIEW</a></li>-->
+                <!--<li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>-->
+                <!--<li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>-->
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-new-candidate' in request.path or  '/view-allcandidate' in request.path or  '/add-candidate' in request.path or '/candidate-import' in request.path or '/delete-candidate' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-new-candidate">ADD</a></li>
+                <li><a class="dropdown-item" href="/view-allcandidate">VIEW</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>
+                <li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if  '/view-nkd' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-nkd/{{pk}}">ADD</a></li>
+                <!--<li><a class="dropdown-item" href="/view-candidate-document/{{pk}}">VIEW</a></li>-->
+                <!--<li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>
+                <li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>-->
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+
+
+          {% if  '/view-candidate-document' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-candidate-document/{{pk}}">ADD</a></li>
+                <!--<li><a class="dropdown-item" href="/view-candidate-document/{{pk}}">VIEW</a></li>-->
+                <!--<li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>
+                <li><a class="dropdown-item" href="/candidate-export">DOWNLOAD</a></li>-->
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+          {% if '/edit-crewplanner' in request.path or  '/view-crewplanner' in request.path or  '/add-crewplanner' in request.path or '/crewplanner-import' in request.path or '/delete-crewplanner' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" style="">
+                <li><a class="dropdown-item" href="/add-crewplanner">ADD</a></li>
+                <li><a class="dropdown-item" href="/view-crewplanner">VIEW</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">UPLOAD</a></li>
+                <li><a class="dropdown-item" href="/crewplanner-export">DOWNLOAD</a></li>
+                <!--<li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <button class="dropdown-item btn-danger text-white" id="delete_btn" onclick="submitForm()" >DELETE</button></li>-->
+              </ul>
+            </div>
+          </div>
+          {% endif %}        
+          {% if '/search' in request.path %}
+          <div class="demo-inline-spacing">
+            <div class="btn-group">
+              <a type="button" class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow"  href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpload" aria-controls="offcanvasUpload">
+                <i class="tf-icons bx bx-search"></i>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>

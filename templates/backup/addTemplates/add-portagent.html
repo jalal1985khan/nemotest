@@ -1,0 +1,79 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Add Port Agent</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+    <form method="POST" action="" >
+            {% csrf_token %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Port Agent Name</label>
+       {{form.port_agent}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Contact Person</label>
+       {{form.port_contact_person}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Address</label>
+       {{form.port_agent_address}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Phone</label>
+       {{form.port_agent_phone}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Email</label>
+       {{form.port_agent_email}}
+     </div>
+   </div>
+   <!-- /.col --> 
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>City</label>
+      {{form.port_agent_city}}
+    </div></div>
+    <!-- /.form-group -->
+    <div class="col-md-6">
+        <div class="form-group">
+          <label>State</label>
+          {{form.port_agent_state}}
+        </div></div>
+        <!-- /.form-group -->
+        <div class="col-md-6">
+            <div class="form-group">
+              <label>Country</label>
+              {{form.port_agent_country}}
+            </div></div>
+            <!-- /.form-group --> 
+  </div>
+  <!-- /.col -->
+  <button type="submit" class="btn btn-primary">Add Port Agent</button>
+</div>
+</form>
+</div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

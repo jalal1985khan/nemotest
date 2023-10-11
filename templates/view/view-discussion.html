@@ -1,0 +1,216 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+
+
+<!--{{form.as_p}}-->
+
+<div class="row">
+<div class="col-md-6 col-lg-6">
+<div class="card-body">
+<form method="POST" action="{% url 'edit-comment' %}" enctype="multipart/form-data">
+{% csrf_token %}    
+{% for c in candidate%}
+<h6 class="mt-2 text-muted">Last Call- {{ c.first_name }} {{ c.last_name }}</h6>
+{% endfor %}
+
+<div class="card mb-4">
+<div class="card-body">
+    <div class="mt-4">
+        <label for="defaultFormControlInput" class="form-label">Special Comments</label>
+        <input type="text" class="form-control" id="defaultFormControlInput" placeholder="no data" aria-describedby="defaultFormControlHelp" value="" readonly>
+    </div>
+<!--row start here -->    
+    <div class="row mt-4">
+    <div class="col-6">
+        <label for="defaultFormControlInput" class="form-label">Available date</label>
+        {% for c in candidate %}
+        <input type="hidden" class="form-control" name="can_id" id="defaultFormControlInput" placeholder="no data" aria-describedby="defaultFormControlHelp" value="{{ c.id }}" >
+        <input type="date" class="form-control" name="available" id="defaultFormControlInput" placeholder="no data" aria-describedby="defaultFormControlHelp" value="{{ c.availibity }}" >
+        {% endfor %}
+    </div>
+    <div class="col-6">
+        <label for="defaultFormControlInput" class="form-label">Last salary</label>
+        {% for c in contract %}
+        <input type="text" class="form-control" name="salary" id="defaultFormControlInput" placeholder="no data" aria-describedby="defaultFormControlHelp" value="{{c.wages}}" >
+        <input type="hidden" class="form-control" name="id" id="defaultFormControlInput" placeholder="no data" aria-describedby="defaultFormControlHelp" value="{{c.pk}}" >
+        {% endfor %}
+    </div>
+</div>
+<!-- row end here -->
+<!--row start here -->    
+<div class="row mt-4">
+    <div class="col-6">
+        <label for="defaultFormControlInput" class="form-label">Last company</label>
+        <input type="text" class="form-control" name="company" id="defaultFormControlInput" name="last_company" placeholder="John Doe" aria-describedby="defaultFormControlHelp" >
+    </div>
+
+    <div class="col-6">
+        <label for="defaultFormControlInput" class="form-label">Rank</label>
+        <select class="form-select" name="rank">
+        {% for r in rank %}
+        <option
+        {% if r.rank_name == dis_rank.rank %}
+        selected
+        {% endif%}
+        value="{{ r.rank_name }}"
+        >{{ r.rank_name }}</option>
+        {% endfor %}
+        </select>
+    </div>
+</div>
+<!-- row end here -->
+<!--row start here -->    
+<div class="row mt-4">
+    <div class="col-6">
+        <label for="defaultFormControlInput" class="form-label">Vessel Type</label>
+        <select class="form-select" name="vessel">
+            {% for v in vessel %}
+            <option
+            {% if v.vessel_name == dis_rank.vessel_type %}
+        selected
+        {% endif%}
+            value="{{ v.vessel_name }}"
+            >{{ v.vessel_name }}</option>
+            {% endfor %}
+            </select>
+    </div>
+    <div class="col-6">
+        <label for="defaultFormControlInput" class="form-label">Status</label>
+        <select class="form-select" name="status">
+            <option value="">---------</option>
+            <option value="ACTIVE"
+            {% if dis_rank.status == "ACTIVE" %}
+            selected
+            {% endif %}
+            >ACTIVE</option>
+            <option value="IN-ACTIVE"
+            {% if dis_rank.status == "IN-ACTIVE" %}
+            selected
+            {% endif %}
+            >IN-ACTIVE</option>
+            </select>
+    </div>
+</div>
+<!-- row end here -->
+<button type="submit" class="btn btn-primary mt-4">UPDATE</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-6">
+<div class="card-body">
+
+<form method="POST" action="{% url 'add-discussion' id.id %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <h6 class="mt-2 text-muted">Status</h6>
+    <div class="card mb-4">
+    <div class="card-body">
+        <div class="col-md">
+
+            <small class="text-light fw-semibold">Status</small>
+            <div class="form-check mt-3">                
+                {{form.proposed|attr:"class:form-check-input"}}
+            
+              <label class="form-check-label" for="defaultCheck1"> Proposed </label>
+            </div>
+            <div class="form-check mt-3">
+                {{form.approved|attr:"class:form-check-input"}}
+                <label class="form-check-label" for="defaultCheck1"> Approved </label>
+              </div>
+              <div class="form-check mt-3">
+                {{form.joined|attr:"class:form-check-input"}}
+                <label class="form-check-label" for="defaultCheck1"> Joined </label>
+              </div>
+              <div class="form-check mt-3">
+                {{form.reject|attr:"class:form-check-input"}}
+                <label class="form-check-label" for="defaultCheck1"> Rejected </label>
+              </div>
+          </div>
+          <div id="s_company" style="display:none">
+          <div class="row mt-4">
+          <div class="col-6">
+            <label for="defaultFormControlInput" class="form-label">Company</label>
+            {{form.company|attr:"class:form-select"}}
+          </div> 
+          <div class="col-6">
+            <label for="defaultFormControlInput" class="form-label">Date</label>
+            {{form.date|attr:"class:form-control"|attr:"type:date"}}
+            
+          </div> </div></div>
+          <div class="row" >
+        <div class="mt-4" id="s_reason" style="display:none;">
+            <label for="defaultFormControlInput" class="form-label">Reason</label>
+            {{form.reason|attr:"class:form-control"}}
+            <div id="defaultFormControlHelp" class="form-text">
+              We'll never share your details with anyone else.
+            </div>
+          </div> 
+          <hr class="mt-4">  
+          <div>
+            <div class="col-md">
+                <small class="text-light fw-semibold">Status</small>
+                <div class="form-check mt-3">
+                    {{form.reminder_check|attr:"class:form-check-input"}}
+                  <label class="form-check-label" for="defaultCheck1"> Set Reminder </label>
+                </div>
+                <div class="form-check mt-3">
+                    {{form.comment_check|attr:"class:form-check-input"}}
+                    <label class="form-check-label" for="defaultCheck1"> Special Comments </label>
+                  </div>
+                  <div class="form-check mt-3">
+                    {{form.reference_check|attr:"class:form-check-input"}}
+                    <label class="form-check-label" for="defaultCheck1"> Reference Check </label>
+                  </div>
+              </div>
+              <div class="mt-4" >
+                <div id="remind_date" style="display:none;">
+                <label for="defaultFormControlInput" class="form-label">Remind Date</label>
+                {{form.reminder_date|attr:"class:form-control"|attr:"type:date"}}
+                <div id="defaultFormControlHelp" class="form-text">
+                  We'll never share your details with anyone else.
+                </div></div>
+              <div class="mt-4">
+                <div id="special_comment" style="display:none;">
+                <label for="defaultFormControlInput" class="form-label">Special Comment</label>
+                {{form.special_comment|attr:"class:form-control"}}
+                <div id="defaultFormControlHelp" class="form-text">
+                  We'll never share your details with anyone else.
+                </div></div>
+                <div class="mt-4">
+                  <div id="reference" style="display:none;">
+                    <label for="defaultFormControlInput" class="form-label">Reference Check</label>
+                    {{form.refernce_comment|attr:"class:form-control"}}
+                    <div id="defaultFormControlHelp" class="form-text">
+                      We'll never share your details with anyone else.
+                    </div></div>
+
+          </div>
+        </div>
+    </div>
+{% for c in candidate%}
+<input type="hidden" name="name" value="{{ c.first_name}} {{ c.last_name}}">
+{% endfor %}
+<input type="hidden" name="edit_id" value="">
+
+<button type="submit" class="btn btn-primary mt-1">SUBMIT</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>          
+
+            <!-- / Content -->
+{% include 'model/company-model.html' %} 
+          </div>
+{% include 'include/footer.html' %}

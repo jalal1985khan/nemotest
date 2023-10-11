@@ -1,0 +1,643 @@
+{% load widget_tweaks %}
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUpload" aria-labelledby="offcanvasEndLabel">
+  <div class="offcanvas-header">
+    {% if '/edit-company' in request.path or  '/view-company' in request.path or  '/add-company' in request.path or '/company-import' in request.path or '/delete-company' in request.path %}
+    <h5 class="card-header">Upload Company Module</h5>
+    {% endif %}
+    {% if '/edit-vessel' in request.path or  '/view-vessel' in request.path or  '/add-vessel' in request.path or '/vessel-import' in request.path or '/delete-vessel' in request.path %}
+    <h5 class="card-header">Upload Vessel Module</h5>
+    {% endif %}
+    {% if '/edit-experience' in request.path or  '/view-experience' in request.path or  '/add-experience' in request.path or '/experience-import' in request.path or '/delete-experience' in request.path %}
+    <h5 class="card-header">Upload Experience Module</h5>
+    {% endif %}
+    {% if '/edit-vsl' in request.path or  '/view-vsl' in request.path or  '/add-vsl' in request.path or '/vsl-import' in request.path or '/delete-vsl' in request.path %}
+    <h5 class="card-header">Upload VSL Module</h5>
+    {% endif %}
+    {% if '/edit-rank' in request.path or  '/view-rank' in request.path or  '/add-rank' in request.path or '/rank-import' in request.path or '/delete-rank' in request.path %}
+    <h5 class="card-header">Upload RANK Module</h5>
+    {% endif %}
+    {% if '/edit-grade' in request.path or  '/view-grade' in request.path or  '/add-grade' in request.path or '/grade-import' in request.path or '/delete-grade' in request.path %}
+    <h5 class="card-header">Upload GRADE Module</h5>
+    {% endif %}
+    {% if '/edit-port' in request.path or  '/view-port' in request.path or  '/add-port' in request.path or '/port-import' in request.path or '/delete-port' in request.path %}
+    <h5 class="card-header">Upload PORT Module</h5>
+    {% endif %}
+    {% if '/edit-agentport' in request.path or  '/view-agentport' in request.path or  '/add-agentport' in request.path or '/agentport-import/' in request.path or '/delete-agentport' in request.path %}
+    <h5 class="card-header">Upload PORT AGENT Module</h5>
+    {% endif %}
+    {% if '/edit-hospital' in request.path or  '/view-hospital' in request.path or  '/add-hospital' in request.path or '/hospital-import' in request.path or '/delete-hospital' in request.path %}
+    <h5 class="card-header">Upload HOSPITAL Module</h5>
+    {% endif %}
+    {% if '/edit-document' in request.path or  '/view-document' in request.path or  '/add-document' in request.path or '/document-import' in request.path or '/delete-document' in request.path %}
+    <h5 class="card-header">Upload DOCUMENT Module</h5>
+    {% endif %}
+    {% if '/edit-vendor' in request.path or  '/view-vendor' in request.path or  '/add-vendor' in request.path or '/vendor-import' in request.path or '/delete-vendor' in request.path %}
+    <h5 class="card-header">Upload VENDOR Module</h5>
+    {% endif %}
+    {% if '/edit-country' in request.path or  '/view-country' in request.path or  '/add-country' in request.path or '/country-import' in request.path or '/delete-country' in request.path %}
+    <h5 class="card-header">Upload COUNTRY Module</h5>
+    {% endif %}
+    {% if '/edit-candidate' in request.path or  '/view-candidate' in request.path or  '/add-candidate' in request.path or '/candidate-import' in request.path or '/delete-candidate' in request.path %}
+    <h5 class="card-header">Upload CANDIDATE Module</h5>
+    {% endif %}
+    {% if '/edit-crewplanner' in request.path or  '/view-crewplanner' in request.path or  '/add-crewplanner' in request.path or '/crewplanner-import' in request.path or '/delete-crewplanner' in request.path %}
+    <h5 class="card-header">Upload CREWPLANNER Module</h5>
+    {% endif %}
+    {% if '/search' in request.path %}
+    <h5 class="card-header">Advanced Search Filter</h5>
+    {% endif %}
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <hr class="m-0">
+
+  <div class="offcanvas-body mx-0 flex-grow-0 mt-5">
+    {% if '/edit-company' in request.path or  '/view-company' in request.path or  '/add-company' in request.path or '/company-import' in request.path or '/delete-company' in request.path %}
+    <form method="POST" action="/company-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-vessel' in request.path or  '/view-vessel' in request.path or  '/add-vessel' in request.path or '/vessel-import' in request.path or '/delete-vessel' in request.path %}
+    <form method="POST" action="/vessel-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-experience' in request.path or  '/view-experience' in request.path or  '/add-experience' in request.path or '/experience-import' in request.path or '/delete-experience' in request.path %}
+    <form method="POST" action="/experience-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-vsl' in request.path or  '/view-vsl' in request.path or  '/add-vsl' in request.path or '/vsl-import' in request.path or '/delete-vsl' in request.path %}
+    <form method="POST" action="/vsl-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-rank' in request.path or  '/view-rank' in request.path or  '/add-rank' in request.path or '/rank-import' in request.path or '/delete-rank' in request.path %}
+    <form method="POST" action="/rank-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-grade' in request.path or  '/view-grade' in request.path or  '/add-grade' in request.path or '/grade-import' in request.path or '/delete-grade' in request.path %}
+    <form method="POST" action="/grade-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-port' in request.path or  '/view-port' in request.path or  '/add-port' in request.path or '/port-import' in request.path or '/delete-port' in request.path %}
+    <form method="POST" action="/port-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-agentport' in request.path or  '/view-agentport' in request.path or  '/add-agentport' in request.path or '/agentport-import/' in request.path or '/delete-agentport' in request.path %}
+    <form method="POST" action="/agentport-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-hospital' in request.path or  '/view-hospital' in request.path or  '/add-hospital' in request.path or '/hospital-import' in request.path or '/delete-hospital' in request.path %}
+    <form method="POST" action="/hospital-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-document' in request.path or  '/view-document' in request.path or  '/add-document' in request.path or '/document-import' in request.path or '/delete-document' in request.path %}
+    <form method="POST" action="/document-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-vendor' in request.path or  '/view-vendor' in request.path or  '/add-vendor' in request.path or '/vendor-import' in request.path or '/delete-vendor' in request.path %}
+    <form method="POST" action="/vendor-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-country' in request.path or  '/view-country' in request.path or  '/add-country' in request.path or '/country-import' in request.path or '/delete-country' in request.path %}
+    <form method="POST" action="/country-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-candidate' in request.path or  '/view-candidate' in request.path or  '/add-candidate' in request.path or '/candidate-import' in request.path or '/delete-candidate' in request.path %}
+    <form method="POST" action="/candidate-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+    {% if '/edit-crewplanner' in request.path or  '/view-crewplanner' in request.path or  '/add-crewplanner' in request.path or '/crewplanner-import' in request.path or '/delete-crewplanner' in request.path %}
+    <form method="POST" action="/crewplanner-import/" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- /.box-body -->
+      <div class="box-body">
+        <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" name="files" class="form-control">
+        </div>
+        </div>
+        <div class="col-md-12 mt-5">
+        <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Continue</button>
+        <button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+        </div>
+      </div>
+      <!-- /.box-body -->
+      </form>
+    {% endif %}
+{% if '/search' in request.path %}
+<!-- /.box-body -->
+<div class="box-body">
+<form method="GET" action="/search" enctype="multipart/form-data">  
+       
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="exampleInputFile">Nemo ID</label>
+              {{ filter.form.id }}
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputFile">Name</label>
+                {{ filter.form.first_name }}
+              </div>
+              </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Rank</label>
+              
+              
+              
+              <select class="form-select select2" style="width: 100%;" name="rank" id="id_rank">
+                <option selected="selected" value="">-----</option>
+                {% for r in rank %}
+                  <option value="{{ r.rank_name }}"
+                  {% if get_rank == r.rank_name %}selected{% endif %}
+                  >{{ r.rank_name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <!-- /.form-group -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Vessel</label>
+              <select class="form-select select2" style="width: 100%;" name="vessel_type" id="vessel_type">
+                <option selected="selected" value="">-----</option>
+                {% for v in vessel %}
+                <option value="{{ v.vessel_name }}"
+                {% if get_vessel == v.vessel_name %}selected{% endif %}
+                >{{ v.vessel_name }}</option>
+              {% endfor %}
+              </select>
+            </div>
+            <!-- /.form-group -->
+          </div>
+        </div>
+
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Experience</label>
+              <select class="form-select select2" style="width: 100%;" name="experience" id="id_experience">
+                <option selected="selected" value="">-----</option>
+                {% for e in exp %}
+                <option value="{{ e.experience }}"
+                {% if get_experience == e.experience %}selected{% endif %}
+                >{{ e.experience }}</option>
+              {% endfor %}
+              </select>
+            </div>
+            <!-- /.form-group -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Licence</label>
+              <select class="form-select select2" style="width: 100%;" name="license" id="id_license">
+                <option selected="selected" value="">-----</option>
+                {% for lt in license %}
+                <option value="{{ lt.grade_name }}"
+                {% if get_license == lt.grade_name %}selected{% endif %}
+                >{{ lt.grade_name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <!-- /.form-group -->
+          </div>
+        </div>
+<div class="row mt-3">
+  <div class="col-md-12">
+    <div class="form-group">
+      <label>Status</label>
+      <select class="form-select select2" style="width: 100%;" name="status" id="id_status">
+        <option selected="selected" value="">-----</option>
+        <option value="ACTIVE" {% if get_status == "ACTIVE" %} selected {% endif %}>ACTIVE</option>
+        <option value="IN-ACTIVE" {% if get_status == "IN-ACTIVE" %} selected {% endif %}>IN-ACTIVE</option>
+      </select>
+    </div>
+    <!-- /.form-group -->
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Available From</label>
+       {{ filter.form.availibity|attr:'type:date' }}
+     </div>
+   </div>
+   <!-- /.col -->
+   
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Available To</label>
+       {{ filter.form.availibityto|attr:'type:date' }}
+     </div>
+   </div>
+</div>
+        
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Age Above</label>
+      <select class="form-select select2" style="width: 100%;">
+        <option selected="selected">18</option>
+        <option>	19	</option>
+        <option>	20	</option>
+        <option>	21	</option>
+        <option>	22	</option>
+        <option>	23	</option>
+        <option>	24	</option>
+        <option>	25	</option>
+        <option>	26	</option>
+        <option>	27	</option>
+        <option>	28	</option>
+        <option>	29	</option>
+        <option>	30	</option>
+        <option>	31	</option>
+        <option>	32	</option>
+        <option>	33	</option>
+        <option>	34	</option>
+        <option>	35	</option>
+        <option>	36	</option>
+        <option>	37	</option>
+        <option>	38	</option>
+        <option>	39	</option>
+        <option>	40	</option>
+        <option>	41	</option>
+        <option>	42	</option>
+        <option>	43	</option>
+        <option>	44	</option>
+        <option>	45	</option>
+        <option>	46	</option>
+        <option>	47	</option>
+        <option>	48	</option>
+        <option>	49	</option>
+        <option>	50	</option>
+        <option>	51	</option>
+        <option>	52	</option>
+        <option>	53	</option>
+        <option>	54	</option>
+        <option>	55	</option>
+        <option>	56	</option>
+        <option>	57	</option>
+        <option>	58	</option>
+        <option>	59	</option>
+        <option>	60	</option>
+        <option>	61	</option>
+        <option>	62	</option>
+        <option>	63	</option>
+        <option>	64	</option>
+      </select>
+    </div>
+    <!-- /.form-group -->
+  </div>
+  <!-- /.col -->
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Age Below</label>
+      <select class="form-select select2" style="width: 100%;">
+        <option selected="selected">18</option>
+        <option>	19	</option>
+        <option>	20	</option>
+        <option>	21	</option>
+        <option>	22	</option>
+        <option>	23	</option>
+        <option>	24	</option>
+        <option>	25	</option>
+        <option>	26	</option>
+        <option>	27	</option>
+        <option>	28	</option>
+        <option>	29	</option>
+        <option>	30	</option>
+        <option>	31	</option>
+        <option>	32	</option>
+        <option>	33	</option>
+        <option>	34	</option>
+        <option>	35	</option>
+        <option>	36	</option>
+        <option>	37	</option>
+        <option>	38	</option>
+        <option>	39	</option>
+        <option>	40	</option>
+        <option>	41	</option>
+        <option>	42	</option>
+        <option>	43	</option>
+        <option>	44	</option>
+        <option>	45	</option>
+        <option>	46	</option>
+        <option>	47	</option>
+        <option>	48	</option>
+        <option>	49	</option>
+        <option>	50	</option>
+        <option>	51	</option>
+        <option>	52	</option>
+        <option>	53	</option>
+        <option>	54	</option>
+        <option>	55	</option>
+        <option>	56	</option>
+        <option>	57	</option>
+        <option>	58	</option>
+        <option>	59	</option>
+        <option>	60	</option>
+        <option>	61	</option>
+        <option>	62	</option>
+        <option>	63	</option>
+        <option>	64	</option>
+      </select>
+    </div>
+    <!-- /.form-group -->
+  </div>
+</div> 
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>License Country</label>
+      <select class="form-select select2" style="width: 100%;" name="license_country" id="id_license_country">
+        <option selected="selected" value="">-----</option>
+        {% for ct in country %}
+        <option value="{{ ct.country_name }}"
+        {% if get_license_country in ct.country_name %} selected {% endif %}
+
+        
+        >{{ ct.country_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <!-- /.form-group -->
+  </div>
+  <!-- /.col -->
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Zone</label>
+      <select class="form-select select2" style="width: 100%;" name="zone" id="id_zone">
+        <option selected="selected">-----</option>
+        <option {% if get_zone == "EAST" %} selected {% endif %}>EAST</option>
+        <option {% if get_zone == "WEST" %} selected {% endif %}>WEST</option>
+        <option {% if get_zone == "NORTH" %} selected {% endif %}>NORTH</option>
+        <option {% if get_zone == "SOUTH" %} selected {% endif %}>SOUTH</option>
+      </select>
+    </div>
+    <!-- /.form-group -->
+  </div>  
+</div> 
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Documents</label>
+      <select class="form-select select2" style="width: 100%;" name="document" id="id_document">
+        <option selected="selected">-----</option>
+        {% for doc in document %}
+        <option>{{ doc.document_type }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <!-- /.form-group -->
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Group</label>
+      <select class="form-select select2" style="width: 100%;">
+        <option selected="selected">-----</option>
+        <option value="OFFICER">OFFICER</option>
+      <option value="RATING">RATING</option>
+      <option value="IV CREW">IV CREW</option>
+      </select>
+    </div>
+    <!-- /.form-group -->
+  </div>  
+
+</div> 
+
+<div class="row mt-3">
+  <div class="col-md-12">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Document Number</label>
+       <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+     </div>
+   </div>
+   <!-- /.col -->
+
+ 
+</div>
+
+<div class="col-md-12 mt-5">
+<button type="submit" class="btn btn-primary mb-2 d-grid w-100">Search</button>
+<button type="button" class="btn btn-outline-secondary d-grid w-100" data-bs-dismiss="offcanvas"> Cancel </button>
+</div>
+      <!-- /.box-body -->
+    </form>    
+      </div>
+
+    {% endif %}
+
+
+
+
+
+  </div>  
+  
+
+                      
+                    

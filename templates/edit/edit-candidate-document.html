@@ -1,0 +1,73 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+
+<!--{{form.as_p}}-->
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">ACCOUNT TYPE</label>
+    {{form.document |attr:"class:form-control" }}
+    
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">BANK NAME</label>
+        {{form.document_number|attr:"placeholder:Bank Name"|attr:"class:form-control" }}
+        
+        </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">ISSUE DATE</label>
+        {{form.issue_date|attr:"placeholder:Account Number"|attr:"class:form-control"}}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">ISSUE PLACE</label>
+            {{form.issue_place|attr:"placeholder:Bank Address"|attr:"class:form-control" }}
+            
+            </div>
+    </div>
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">IFSC CODE</label>
+        {{form.document_files|attr:"placeholder:Ifsc Code"|attr:"class:form-control"}}
+        
+        </div>
+    </div> 
+    
+
+<div class="row">
+<div class="mb-3 col-md-12 mt-4">
+<button type="submit" class="btn btn-primary mt-1">UPDATE DOCUMENT</button>
+{% for m in pageid %}
+<a href="/view-candidate-document/{{ m.candidate.id }}" class="btn btn-success mt-1">GO BACK</a>
+<input type="hidden" name="edit_id" value="{{ m.candidate.id }}">
+{% endfor %}
+
+</div>
+</div>
+</form>
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

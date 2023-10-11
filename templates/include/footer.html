@@ -1,0 +1,409 @@
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  ,
+                  <a href="#" target="_blank" class="footer-link fw-bolder">Nautilus Shipping Pvt Ltd</a>
+                </div>
+                {% comment %} <div>
+                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
+                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
+
+                  <a
+                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Documentation</a
+                  >
+
+                  <a
+                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Support</a
+                  >
+                </div> {% endcomment %}
+              </div>
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+<script>
+new Autocomplete('#autocomplete', {
+        search: input => {
+        console.log(input)
+        const url =`/getsearch/?search=${input}`
+        return new Promise(resolve => {
+          fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data.payload)
+            resolve(data.payload)
+          })
+        })
+        },
+       
+        renderResult: (result, props) => `
+        <li ${props}>
+          <div class="wiki-title">
+            ${result.name}
+          </div>
+        </li>
+      `,
+      
+      // Wikipedia returns a format like this:
+      //
+      // {
+      //   pageid: 12345,
+      //   title: 'Article title',
+      //   ...
+      // }
+      // 
+      // We want to display the title
+      getResultValue: result => result.name,
+    })
+    
+
+    
+var chkApproved = document.getElementById("id_proposed");
+var chkProposed= document.getElementById("id_approved");
+var chkJoined= document.getElementById("id_joined");
+var chkRejected= document.getElementById("id_reject");
+var ChkRemind= document.getElementById("id_reminder_check");
+var ChkComment= document.getElementById("id_comment_check");
+var ChkReference= document.getElementById("id_reference_check"); 
+var company= document.getElementById("s_company");
+var reason= document.getElementById("s_reason");
+var remind= document.getElementById("remind_date");
+var comment= document.getElementById("special_comment");
+var reference= document.getElementById("reference"); 
+
+if (chkApproved.checked == true || chkProposed.checked == true || chkJoined.checked == true){
+  company.style.display = "block";
+}
+if (chkRejected.checked == true){
+company.style.display = "block";
+reason.style.display = "block";
+}
+if (ChkRemind.checked == true){
+  remind.style.display = "block";
+}
+if (ChkComment.checked == true){
+  comment.style.display = "block";
+}
+if (ChkReference.checked == true){
+  reference.style.display = "block";
+}
+// Reference Check
+ChkReference.addEventListener("click", (event) => {
+if (ChkReference.checked == true){
+  reference.style.display = "block";
+  } else {
+  reference.style.display = "none";
+  }
+});
+
+// Special Comment
+ChkComment.addEventListener("click", (event) => {
+if (ChkComment.checked == true){
+  comment.style.display = "block";
+  } else {
+    comment.style.display = "none";
+  }
+});
+
+
+// Reminder check box
+ChkRemind.addEventListener("click", (event) => {
+if (ChkRemind.checked == true){
+  remind.style.display = "block";
+  } else {
+  remind.style.display = "none";
+  }
+});
+
+// status chgeckbox
+chkApproved.addEventListener("click", (event) => {
+if (chkApproved.checked == true){
+    company.style.display = "block";
+    reason.style.display = "none";
+  } else {
+    company.style.display = "none";
+  }
+});
+
+chkProposed.addEventListener("click", (event) => {
+if (chkProposed.checked == true){
+    company.style.display = "block";
+    reason.style.display = "none";
+  } else {
+    company.style.display = "none";
+  }
+});
+
+chkJoined.addEventListener("click", (event) => {
+if (chkJoined.checked == true){
+    company.style.display = "block";
+    reason.style.display = "none";
+  } else {
+    company.style.display = "none";
+  }
+});
+
+chkRejected.addEventListener("click", (event) => {
+if (chkRejected.checked == true){
+    company.style.display = "block";
+    reason.style.display = "block";
+  } else {
+    company.style.display = "none";
+    reason.style.display = "none";
+  }
+});
+
+
+
+
+
+
+     </script>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="/staticfiles/style/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/staticfiles/style/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/staticfiles/style/assets/vendor/js/bootstrap.js"></script>
+    <script src="/staticfiles/style/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="/staticfiles/style/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="/staticfiles/style/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <!-- Main JS -->
+    <script src="/staticfiles/style/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    {% comment %} <script src="/staticfiles/style/assets/js/dashboards-analytics.js"></script> {% endcomment %}
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+
+function submitForm() {
+  //alert('clicked');
+var form = document.getElementById("myForm");
+form.submit();
+}
+$("#id_hospital_name").on("change", function(e){
+  var hospital_id = $( "#id_hospital_name option:selected" ).text();
+  $('#hospital_name_id').val(hospital_id);
+  });
+// fetch data from the database  
+var hospital_id = $( "#id_hospital_name option:selected" ).text();
+$('#hospital_name_id').val(hospital_id);
+
+
+$("#vendors").on("change", function(e){
+var vendors = e.target.value;
+$('#id_vendor').val(vendors);
+});
+
+$('#id_date_birth').on("change", function(e) {
+        var date = e.target.value;
+        var arr1 = date.split('-');
+        var dob = arr1[1]+'-'+arr1[2]
+        //console.log("Date changed: ", dob);
+      $("#id_birth_month").val(dob);
+      });
+
+$('#id_date_birth').on("change", function(e) {
+        var b_date = e.target.value; 
+        var arr1 = b_date.split('-');
+        var dob = arr1[0]
+        const date = new Date();
+        let year= date.getFullYear();
+        const f_date = year - dob;
+        //console.log("Date changed: ", dob);
+      $("#id_count_birth").val(f_date);
+      });      
+      
+setTimeout(function() {
+        $('#toast').fadeOut('fast');
+    }, 2000);  
+  
+</script>
+
+{% if notifycount > 0 %}
+<script>
+ $(document).ready(function(){
+   setInterval(function(){
+ $.ajax({
+   url:'{% url 'getnotify' %}',
+   dataType:'json',
+   success:function(res){
+     __head='';
+     //__json=$.parseJSON(res.data);
+     $(".total-notify").text(res.totalUnread);
+     //$(".total-notify").text(res.time);
+     $(".total-count").text('You have '+ res.totalUnread +' notifications');
+     $.each(res.data, function(index,d){
+      if(d.alert == 'updated'){
+          tag = 'bg-success';
+      }
+      else if(d.alert == 'deleted'){
+        tag = 'bg-danger';
+      }
+      else if(d.alert == 'new'){
+        tag = 'bg-warning';
+      }
+      else{
+        tag = 'bg-primary';
+      }
+       __head +=' <a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex justify-content-between w-100"><span class="badge '+ tag +'">'+ d.alert +'</span><small>'+ d.time +'</small></div><p class="mb-1 fw-bold">'+ d.notify_details +'</p><p class="text-uppercase">'+ d.alert +' '+d.type+' Successfully</p><div class="row"><div class="col-md-6"><button data-notify="'+ d.pk +'" class="btn btn-xs btn-primary markreadbtn">Read message</button></div><div class="col-md-6"><span class="badge bg-secondary">updated by '+d.added_by_user+'</span></div></div></a>'
+ });
+    $(".header-notify").html(__head);
+
+   }
+ });
+
+},1000);
+// read notification
+$(document).on("click",".markreadbtn", function(){
+var _index=$(this).attr('data-index')
+var _notify=$(this).attr('data-notify')
+
+     $.ajax({
+       url:'{% url 'get_read_notify' %}',
+       data:{
+         notify:_notify
+       },
+       dataType:'json',
+       success:function(res){
+       console.log(res);
+       if(res.bool==true){
+         
+       }
+       }
+
+     })
+
+
+})
+//end
+
+ });
+</script>
+{% endif %}
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="/staticfiles/clock.js"></script>
+<script>
+
+ 
+
+
+  var table = $('#myTable').DataTable({
+    paging:false,
+    search:false
+  });
+  // #myInput is a <input type="text"> element
+  $('#myInputTextField').on( 'keyup', function () {
+      table.search( this.value ).draw();
+  } );  
+  $("#myTable_filter").addClass("hidden"); // hidden search input  
+
+</script>
+
+  
+
+  <script type='text/javascript'>
+   // 儲存各國名稱及時區
+var data=[
+{
+  country:"NEW YORK",
+  timeZone:"America/New_York",
+},
+{
+  country:"LONDON",
+  timeZone:"Europe/London"
+},
+{
+  country:"BANGKOK",
+  timeZone:"Asia/Bangkok"
+},
+{
+  country:"TAIWAN",
+  timeZone:"Asia/Taipei"
+},
+{
+  country:"SYDNEY",
+  timeZone:"Australia/Sydney"
+}
+]
+
+//儲存時間顯示格式
+option={day:"2-digit",month:"short",year:"numeric",hour12:false,hour:"numeric",minute:"2-digit"};
+
+//DOM
+var timeTable=document.querySelector('.timeZone');
+
+
+function clockMaker(){
+//清除 timeTable內所有節點
+timeTable.innerHTML='';
+//new Date
+let now=new Date();
+//將 timeZone 加入 option中
+for(let i=0;i<data.length;i++){
+  option.timeZone=data[i].timeZone;
+  let str=now.toLocaleString('en',option);
+
+  //切割時間字串
+  let splice=str.split(',')
+  let month=splice[0].split(' ')[0];
+  let day=splice[0].split(' ')[1];
+  let year=splice[1];
+
+  //將時間排成 DD/MM/YYYY
+  let DMY_combine=day+' '+month+','+year;
+  let time=splice[2];
+  let country=data[i].country;
+
+  //組字串
+  var tr=document.createElement('li');
+  tr.setAttribute('class','list-group-item');
+  tr.innerHTML=`
+<div class="mytime">  
+  <span class="badge bg-label-primary p-2">
+    <i class="bx bx-time text-primary"></i></span>
+<div class="country">${country}</div>
+<div class="timer">${time}</div>
+</div>`
+  //新增 tr節點   
+  timeTable.appendChild(tr);
+  
+}
+
+}
+//每半分鐘更新一次
+clockMaker();
+setInterval(clockMaker,30000);
+
+</script>
+

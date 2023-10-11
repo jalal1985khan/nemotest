@@ -1,0 +1,52 @@
+{% include 'header.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Lists Candidate</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Sno</th>
+              <th>Nemo ID</th>
+              <th>Full Name</th>
+              <th>Rank</th>
+              <th>Vessel</th>
+              <th>Mobile</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for candidate in view %}              
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ candidate.id }}</td>
+              <td>{{ candidate.first_name }} {{ candidate.last_name }}</td>
+              <td>{{ candidate.rank }}</td>
+              <td>{{ candidate.vessel_type }}</td>
+              <td>{{ candidate.mobile1 }}</td>
+              <td>{{ candidate.date_birth}}</td>
+              <td>
+                <a href="{% url 'edit-candidate' candidate.id %}" class="btn btn-primary">edit</a>
+                <a href="" class="btn btn-danger">delete</a>
+              </td>
+            </tr>
+            {% endfor%}            
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

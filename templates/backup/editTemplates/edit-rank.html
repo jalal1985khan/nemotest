@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+
+<section class="error-content">
+  <!-- Main content -->
+{{form.errors}}
+{% for message in messages%}
+<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<h4><i class="icon fa fa-check"></i>Message</h4>
+{{message}}
+</div>
+{% endfor%}
+</section>
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Edit Rank</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Rank Name</label>
+       {{form.rank_name}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Rank Order</label>
+       {{form.rank_order}}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Category</label>
+       {{form.rank_category}}
+     </div>
+   </div>
+   <!-- /.col --> 
+
+</div>
+<button type="submit" class="btn btn-primary">Edit Rank</button>
+</form>
+</div>
+</div>
+<!-- end here-->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

@@ -1,0 +1,44 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+<section class="content">
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Add Document</h3>
+            </div>
+            <!-- /.box-header -->
+<div class="box-body">
+  <form method="POST"  action="">  
+    {% csrf_token %}
+  <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Document Name</label>
+            {{ form.document_type }}
+         </div>
+       </div>
+       <!-- /.col -->
+
+      <!-- /.col -->
+      <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Hide Expiry Date</label>
+           {{ form.hide_expiry_date }}
+         </div>
+       </div>
+       <!-- /.col -->
+       
+      </div>
+      <!-- /.col -->
+      <button type="submit" class="btn btn-primary">Add Document</button>  
+    </div>
+    </div>
+  </form>
+  </div> 
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

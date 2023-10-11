@@ -1,0 +1,90 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+
+  <!--{{ form.as_p }}-->
+ <!--from starts here-->   
+ <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form.pk.id}}
+ <div class="box-body">
+<div class="row">
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="exampleInputEmail1">Hospital Name</label>
+        {{form.hospital_name|attr:'class:form-select'}}
+        <input type="hidden" name="hospital_id" id="hospital_name_id">
+     </div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Place *</label>
+{{form.place}}
+ </div>
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Date *</label>
+    {{form.date |attr:"type:date"}}
+  </div>
+  <!-- /.col -->
+  
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Expiry date</label>
+        {{form.expiry_date |attr:"type:date"}}
+    </div>
+    <!-- /.col -->
+ 
+<div class="mb-3 col-md-6">
+<label class="form-label" for="exampleInputEmail1">Done by</label>
+{{form.done_by |attr:'class:form-select'}}
+ </div>
+ <!-- /.col -->
+ 
+ <div class="mb-3 col-md-6">
+ <label class="form-label" for="exampleInputEmail1">Status</label>
+ {{form.status|attr:'class:form-select' }}
+ </div>
+ <!-- /.col -->
+ <div class="mb-3 col-md-6">
+    <label class="form-label" for="exampleInputEmail1">Amount *</label>
+    {{form.amount }}
+    </div>
+    <!-- /.col -->   
+<div class="mb-3 col-md-6">
+        <label class="form-label" for="exampleInputEmail1">Upload</label>
+        {{form.upload}}
+    </div>
+    <!-- /.col -->              
+   
+  
+    
+
+</div>
+<div class="row">
+  <div class="mb-3 col-md-12 mt-4">
+  <button type="submit" class="btn btn-primary mt-1">ADD MEDICAL</button>
+  <a href="/view-medical/{{pk}}" class="btn btn-success mt-1">GO BACK</a>
+  </div>
+  </div>
+</form>
+ <!--from end here-->
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

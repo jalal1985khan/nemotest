@@ -1,0 +1,41 @@
+{% include 'header.html'%}
+
+<section class="content">
+      
+      <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Company Module</h3>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                  <div class="box-body">
+                    <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        
+                        <input type="file" name="files" class="form-control">
+                        <p class="help-block">Upload and download the company Module</p>
+                      </div>
+                    
+                    
+                    
+                  </div>
+                  <!-- /.box-body -->
+    
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-danger">Upload</button>
+                    <button type="submit" class="btn btn-success">Download</button>
+                  </div>
+                </form>
+</div>
+</div>
+<!-- company module end here-->
+
+      
+
+    </section>
+    
+  </div>
+  
+{% include 'footer.html'%}

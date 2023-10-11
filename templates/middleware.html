@@ -1,0 +1,363 @@
+{% if '/edit-company' in request.path or  '/view-company' in request.path or  '/add-company' in request.path or '/company-import' in request.path or '/delete-company' in request.path %}
+<div class="row">
+<div class="col-md-8">
+    <!-- Application buttons --> 
+        <a href="/add-company/" class="btn btn-app {% if  '/add-company' in request.path %} btn-active {% endif %}">
+          <i class="fa fa-edit"></i> ADD
+        </a>
+        <a href="/view-company/" class="btn btn-app {% if '/view-company' in request.path  %} btn-active {% endif %}">
+          <i class="fa fa-file"></i> VIEW
+        </a>
+        <a href="/company-export" class="btn btn-app ">
+          <i class="fa fa-cloud-download"></i> DOWNLOAD
+        </a>
+        <a href="/company-import" class="btn btn-app {% if '/company-import' in request.path %} btn-active {% endif %}">
+          <i class="fa fa-cloud-upload"></i> UPLOAD
+        </a>
+        <a class="btn btn-app ">
+          <i class="fa fa-save"></i> Sample
+        </a> 
+  </div>
+  <div class="col-md-4 ">
+    <h3 class="f-right pr-3">
+        </h3>
+  </div>
+</div>
+{% endif %}
+{% if '/edit-vessel' in request.path or  '/view-vessel' in request.path or  '/add-vessel' in request.path or '/vessel-import' in request.path or '/delete-vessel' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-vessel/" class="btn btn-app {% if  '/add-vessel' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-vessel/" class="btn btn-app {% if '/view-vessel' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/vessel-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/vessel-import" class="btn btn-app {% if '/vessel-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %} 
+
+
+{% if '/edit-vsl' in request.path or  '/view-vsl' in request.path or  '/add-vsl' in request.path or '/vsl-import' in request.path or '/delete-vsl' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-vsl/" class="btn btn-app {% if  '/add-vsl' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-vsl/" class="btn btn-app {% if '/view-vsl' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/vsl-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/vsl-import" class="btn btn-app {% if '/vsl-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %} 
+
+{% if '/edit-experience' in request.path or  '/view-experience' in request.path or  '/add-experience' in request.path or '/experience-import' in request.path or '/delete-experience' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-experience/" class="btn btn-app {% if  '/add-experience' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-experience/" class="btn btn-app {% if '/view-experience' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/experience-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/experience-import" class="btn btn-app {% if '/experience-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %}
+
+{% if '/edit-rank' in request.path or  '/view-rank' in request.path or  '/add-rank' in request.path or '/rank-import' in request.path or '/delete-rank' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-rank/" class="btn btn-app {% if  '/add-rank' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-rank/" class="btn btn-app {% if '/view-rank' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/rank-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/rank-import" class="btn btn-app {% if '/rank-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        
+      </div>
+    </div>
+
+{% endif %} 
+
+{% if '/edit-grade' in request.path or  '/view-grade' in request.path or  '/add-grade' in request.path or '/grade-import' in request.path or '/delete-grade' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-grade/" class="btn btn-app {% if  '/add-grade' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-grade/" class="btn btn-app {% if '/view-grade' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/grade-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/grade-import" class="btn btn-app {% if '/grade-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %} 
+
+{% if '/edit-port' in request.path or  '/view-port' in request.path or  '/add-port' in request.path or '/port-import' in request.path or '/delete-port' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-port/" class="btn btn-app {% if  '/add-port' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-port/" class="btn btn-app {% if '/view-port' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/port-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/port-import" class="btn btn-app {% if '/port-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %} 
+
+
+
+
+{% if '/edit-agentport' in request.path or  '/view-agentport' in request.path or  '/add-agentport' in request.path or '/agentport-import/' in request.path or '/delete-agentport' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-agentport/" class="btn btn-app {% if  '/add-agentport' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-agentport" class="btn btn-app {% if '/view-agentport' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/agentport-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/agentport-import" class="btn btn-app {% if request.path in '/agentport-import/' %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %} 
+
+{% if '/edit-hospital' in request.path or  '/view-hospital' in request.path or  '/add-hospital' in request.path or '/hospital-import' in request.path or '/delete-hospital' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-hospital/" class="btn btn-app {% if  '/add-hospital' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-hospital" class="btn btn-app {% if '/view-hospital' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/hospital-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/hospital-import" class="btn btn-app {% if '/hospital-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %}
+
+{% if '/edit-document' in request.path or  '/view-document' in request.path or  '/add-document' in request.path or '/document-import' in request.path or '/delete-document' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-document/" class="btn btn-app {% if  '/add-document' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-document" class="btn btn-app {% if '/view-document' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            {% comment %} <a href="/document-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a> {% endcomment %}
+            <a href="/document-import" class="btn btn-app {% if '/document-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %} 
+
+{% if '/edit-vendor' in request.path or  '/view-vendor' in request.path or  '/add-vendor' in request.path or '/vendor-import' in request.path or '/delete-vendor' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-vendor/" class="btn btn-app {% if  '/add-vendor' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-vendor" class="btn btn-app {% if '/view-vendor' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/vendor-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/vendor-import" class="btn btn-app {% if '/vendor-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+
+{% endif %}
+
+{% if '/edit-country' in request.path or  '/view-country' in request.path or  '/add-country' in request.path or '/country-import' in request.path or '/delete-country' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-country/" class="btn btn-app {% if  '/add-country' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-country" class="btn btn-app {% if '/view-country' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/country-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/country-import" class="btn btn-app {% if '/country-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+{% endif %} 
+
+{% if '/edit-candidate' in request.path or  '/view-candidate' in request.path or  '/add-candidate' in request.path or '/candidate-import' in request.path or '/delete-candidate' in request.path %}
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Application buttons --> 
+            <a href="/add-candidate/" class="btn btn-app {% if  '/add-candidate' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-edit"></i> ADD
+            </a>
+            <a href="/view-candidate" class="btn btn-app {% if '/view-candidate' in request.path  %} btn-active {% endif %}">
+              <i class="fa fa-file"></i> VIEW
+            </a>
+            <a href="/candidate-export" class="btn btn-app ">
+              <i class="fa fa-cloud-download"></i> DOWNLOAD
+            </a>
+            <a href="/candidate-import" class="btn btn-app {% if '/candidate-import' in request.path %} btn-active {% endif %}">
+              <i class="fa fa-cloud-upload"></i> UPLOAD
+            </a>
+            <a class="btn btn-app ">
+              <i class="fa fa-save"></i> Sample
+            </a> 
+      </div>
+      <div class="col-md-4 ">
+        <h3 class="f-right pr-3"></h3>
+      </div>
+    </div>
+{% endif %} 

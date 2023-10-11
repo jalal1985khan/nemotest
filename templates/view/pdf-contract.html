@@ -1,0 +1,377 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>
+{% for c in candidate %}
+{{ c.first_name }} {{ c.last_name }}
+{% endfor %}
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+
+html, body {
+  height: 100%;
+  background: #002336;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+* {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #333447;
+  line-height: 1.5;
+}
+/* TYPOGRAPHY */
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.375rem;
+}
+h4 {
+  font-size: 1.125rem;
+}
+h5 {
+  font-size: 1rem;
+}
+h6 {
+  font-size: 0.875rem;
+}
+p {
+  /*font-size: 1.125rem;
+  font-weight: 200;*/
+  line-height: 1.8;
+}
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-heavy {
+  font-weight: 700;
+}
+/* POSITIONING */
+
+.left {
+  text-align: left;
+}
+.right {
+  float: right;
+  text-align: right;
+}
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.justify {
+  text-align: justify;
+}
+/** standard padding**/
+
+.no-padding {
+  padding: 0px;
+}
+.standard-padding {
+  padding: 20px;
+}
+.standard-padding-right {
+  padding-right: 20px;
+}
+.standard-padding-left {
+  padding-left: 20px;
+}
+.standard-padding-right {
+  padding-left: 20px;
+}
+.standard-padding-top {
+  padding-top: 20px;
+}
+.standard-padding-bottom {
+  padding-bottom: 20px;
+}
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.row {
+  position: relative;
+  width: 100%;
+}
+.row [class^="col"] {
+  float: left;
+  margin: 0.5rem 2%;
+  min-height: 0.125rem;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.hidden-sm {
+  display: none;
+}
+.invoice-box {
+  background: #ffffff;
+  /*max-width: 900px;
+  margin: 60px auto; 
+  padding: 30px;*/
+  border: 1px solid #002336;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  line-height: 24px;
+  color: #002336;
+}
+.title {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #8B8B8B;
+  margin-bottom: 4px;
+}
+.infoblock {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+.titles {
+  padding-top: 4px;
+  margin-top: 20px;
+  background: #DCDCDC;
+  font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+  .invoice-box table tr.top table td {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  .invoice-box table tr.information table td {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}
+/** RTL **/
+
+.rtl {
+  direction: rtl;
+  font-family: "Lato", Tahoma, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+.rtl table {
+  text-align: right;
+}
+.rtl table tr td:nth-child(2) {
+  text-align: left;
+}
+.eqWrap {
+  display: flex;
+}
+.eq {
+  padding: 10px;
+  /*border: 2px solid red; */
+}
+.item:nth-of-type(odd) {
+  background: #F9F9F9;
+}
+.item:nth-of-type(even) {
+  background: #fff;
+}
+.equalHW {
+  flex: 1;
+}
+.equalHM {
+  width: 32%;
+}
+.equalHMR {
+  width: 32%;
+  margin-bottom: 2%;
+}
+table.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  
+}
+.table th, .table td {
+  text-align: left;
+  padding: 0.25em;
+  border: 1px solid #000;
+}
+.bold {
+    font-weight: bold;  
+}
+button:hover {
+  box-shadow: 0 0 4px rgba(3, 3, 3, 0.8);
+  opacity: 0.9;
+}
+.company{
+text-align:center;    
+}
+.right{
+float:right !important;    
+}
+.left{
+    float:left !important;    
+}
+.wrap{
+    white-space: pre-wrap;
+    margin-top: 22px;
+    padding: 14px;   
+    font-family: "Lato", Tahoma, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+.c-border{
+border:2px solid #F9F9F9;
+padding:2px;    
+}
+.section{
+padding:12px;    
+}
+  </style>
+  <div class="invoice-box">
+    <div >
+      <div >
+        <div class="equalHWrap eqWrap top">
+          <div class="equalHW eq center logo-block">
+            <span class="left c-border" id="AccountEmail">NEMO ID: {% for c in candidate %}
+              {{ c.id }}
+              {% endfor %}
+            </span>
+  
+
+         
+              
+          </div>
+          <div class="equalHW eq contact-info-block company">
+            <span id="AccountEmail"><strong>CONTRACT OF EMPLOYMENT</strong><br>BETWEEN
+            <br>
+            {% for f in company %}
+              {{ f.company_name }}
+              {% endfor %}
+             (The “Manager”)
+            <br>
+            {% for f in company %}
+              {{ f.address }}
+              {% endfor %}
+          
+            </span>
+            <span id="AccountEmail"><br>
+                <strong>CONTRACT OF EMPLOYMENT</strong><br>BETWEEN
+            <br>ABAN ABRAHAM PTE LTD (The “Manager”)
+            <br>No 6, Temasek Boulevard, #28-01 to 05, Suntec Tower Four, Singapore-038986
+            </span>
+          </div>
+          <div class="equalHW eq title-block">
+            <span class="right c-border" id="AccountEmail">RPSL/CHN/012</span>
+          </div>
+        </div>
+        <div  style="margin-top:20px;">
+ 
+          <div >
+            <div class="equalHWrap eqWrap">
+              <div class="equalHW eq infoblock to-block">
+                <span id="CustomerName">Full Name:</span><br>
+                <span id="AccountProject">Date and Place of Birth:</span><br>
+                <span id="CustomerAddress">Passport Details:</span><br>
+                <span id="CustomerPostalCode">Seaman`s Book/ID Details</span><br>
+                <span id="CustomerCountry">Cert. of Competency</span><br>
+                <span id="CustomerRef">Joining Port</span>
+              </div>
+              <div class="equalHW eq infoblock from-block">
+                <span id="AccountName">{% for c in candidate %}
+                  {{ c.first_name }} {{c.last_name }}
+                  {% endfor %}</span><br>
+                <span id="AccountProject">{% for c in candidate %}
+                  {{ c.date_birth }}, {{ c.birth_place }}
+                  {% endfor %}</span><br>
+                <span id="AccountAddress">No. , Issued on at:</span><br>
+                <span id="AccountPostalCode">No. , Issued on at:</span><br>
+                <span id="AccountCountry">N/A</span><br>
+                <span id="AccountProject">{% for c in pdf %}
+                  {{ c.sign_on_port }}
+                  {% endfor %}</span><br>
+              </div>
+              <div class="equalHW eq infoblock info-block">
+                <span class="right">(the Seafarer)</span><br>
+              </div>
+            </div>
+          </div>
+
+          <div  style="margin-top:20px;">
+ 
+            <div >
+              <div class="equalHWrap eqWrap">
+                <div class="equalHW eq infoblock to-block">
+                  <span id="CustomerName">For service onboard MV:</span><br>
+                  <span id="AccountProject">Vessel Type:</span><br>
+                </div>
+                <div class="equalHW eq infoblock from-block">
+                  <span id="AccountName">JINDAL MEENAKSHI  of   N/A  Flag, IMO Nbr.:   N/A</span><br>
+                  <span id="AccountProject">N/A  </span><br>
+                </div>
+                <div class="equalHW eq infoblock info-block">
+                  <span class="right">(the ‘Vessel’) </span><br>
+                </div>
+              </div>
+            </div>
+            <div class="wrap"><p>1. The terms and conditions applied from commencement of service for the duration shown below are in accordance with and subject to the following Conditions of Service, the contents of which the Seafarer acknowledges, has been given an opportunity to review and seek advice, and as having read, understood and agreed to:</p></div>
+          <div class="section">
+            <table class="table table-bordered p-1">
+            <tr class="item" id="ProductList">
+              <td id="Product" class="bold"><span id="ProuductName">Rank on Board<span></span></span></td>
+              <td><span id="ProductNumUnits" class="bold">Place of Engagement<span></span></span></td>
+              <td><span id="ProductUnit" class="bold">Wage starts from (date)<span></span></span></td>
+            </tr>
+            <tr class="item">
+              <td><span id="ProuductName">
+                {% for c in pdf %}
+                  {{ c.vessel_type }}
+                  {% endfor %}
+                <span></span></span></td>
+              <td><span id="ProductNumUnits">Chennai<span></span></span></td>
+              <td><span id="ProductUnit">THE DAY CREW EMBARK THE VESSEL<span></span></span></td>
+            </tr>
+            
+          </table>
+        </div></div>
+        <div class="row section">
+          <div class="left mt-3 px-3">            
+<p>Note: * (+/- 1) month is option of Owners / Managers of the vessel</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+                    
+                  </div>
+                  
+                </div>
+
+              </div>
+              <!--/ Bordered Table -->
+
+            </div>
+ 

@@ -1,0 +1,93 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Bordered Table -->
+              <div class="card">
+                {% for c in candidate%}
+                {% include 'include/buttons.html' %}
+                {% endfor %}
+                <div class="card-body">
+                  <form action="{% url 'del-nkd' %}" method="POST" id="myForm">
+                    {% csrf_token %}
+                  <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered" id="myTable">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Sno</th>
+                          <th style="width:5%">Candidate</th>
+                          <th>Kin Name</th>
+                          <th >Kin Relation</th>
+                          <th>Kin Contact Number</th>
+                          <th>Kin Contact Address</th>
+                          <th>Priority</th>
+                          <th>Action</th>
+            
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for  m in page_obj %}
+                         <tr> 
+                          <td>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="selected_ids" value="{{m.id}}" id="instance_delete" >
+                            <input type="hidden" value="{{m.candidate.id}}" name="can_id">
+                          </div></td>
+                          <td width="5">{{m.id}}</td>
+                          <td  >{{m.candidate}}</td>
+                          <td>{{m.kin_name}}</td>
+                          <td  >{{m.kin_relation}}</td>
+                          <td  >{{m.kin_contact_number}}</td>
+                          <td  >{{m.kin_contact_address}}</td>
+                          <td  >
+                            {% if m.kin_priority == "HIGH" %}
+                            <span class="badge bg-danger">{{m.kin_priority}}</span>
+                            {% elif m.kin_priority == "MEDIUM" %}
+                            <span class="badge bg-warning">{{m.kin_priority}}</span>
+                            {% else %}
+                            <span class="badge bg-info">{{m.kin_priority}}</span>
+                            {% endif %}
+                            
+                            
+                            </td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                type="button"
+                                class="btn p-0 dropdown-toggle hide-arrow"
+                                data-bs-toggle="dropdown"
+                              >
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'edit-nkd' m.id %}"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="{% url 'delete-nkd' m.id %}"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                         
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                </form>
+                </div>
+                {% include 'include/pagination.html' %}
+              </div>
+              <!--/ Bordered Table -->
+
+            </div>
+            <!-- / Content -->
+{% include 'model/company-model.html' %} 
+          </div>
+{% include 'include/footer.html' %}

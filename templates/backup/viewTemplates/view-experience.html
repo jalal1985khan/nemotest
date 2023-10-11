@@ -1,0 +1,47 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">List Experience</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                  
+                    <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Sno</th>
+                        <th>Experience</th>
+                        <th>Action</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+              {% for experiences in experience %}
+              
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ experiences.experience }}</td>
+                        <td>
+                          <a href="{% url 'edit-experience' experiences.id %}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                          <a href="{% url 'delete-experience' experiences.id %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </table>      
+
+
+          </div>
+          </div>
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+      </section>
+
+
+  {% include 'footer.html' %}

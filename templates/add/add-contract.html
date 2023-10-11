@@ -1,0 +1,138 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+
+<!--{{form.as_p}}-->
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">RANK</label>
+    {{form.rank |attr:"class:form-select" }}
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">COMPANY</label>
+        {{form.company |attr:"class:form-select" }}
+        </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">VSL NAME</label>
+            {{form.vsl_name|attr:"placeholder:Bank Name"|attr:"class:form-control" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">VESSEL TYPE</label>
+        {{form.vessel_type |attr:"class:form-select" }}
+        
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">SIGN ON PORT</label>
+            {{form.sign_on_port|attr:"class:form-select" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">SIGN ON</label>
+        {{form.sign_on|attr:"class:form-control" }}
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">Wage start</label>
+            {{form.wage_start|attr:"class:form-select" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">EOC</label>
+        {{form.eoc|attr:"class:form-control" }}
+        </div>
+    </div> 
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">WAGES</label>
+            {{form.wages|attr:"class:form-select" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">CURRENCY</label>
+        {{form.currency|attr:"class:form-control" }}
+        </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">WAGES TYPE</label>
+            {{form.wages_types|attr:"class:form-select" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">SIGN OFF</label>
+        {{form.sign_off|attr:"class:form-control" }}
+        </div>
+    </div> 
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">SIGN OFF PORT</label>
+            {{form.sign_off_port|attr:"class:form-select" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">REASON FOR SIGN OFF</label>
+        {{form.reason_for_sign_off|attr:"class:form-control" }}
+        </div>
+    </div>     
+
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">DOCUMENT</label>
+            {{form.documents|attr:"class:form-control" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">AOA</label>
+        {{form.aoa|attr:"class:form-control" }}
+        </div>
+    </div> 
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">AOA NUMBER</label>
+            {{form.aoa_number|attr:"class:form-control" }}
+            </div>
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">EMIGRATE NUMBER</label>
+        {{form.emigrate_number|attr:"class:form-control" }}
+        </div>
+    </div>      
+
+
+<div class="row">
+<div class="mb-3 col-md-12 mt-4">
+<button type="submit" class="btn btn-primary mt-1">ADD CONTRACT</button>
+{% for m in pageid %}
+<a href="/view-contract/{{ m.candidate.id }}" class="btn btn-success mt-1">GO BACK</a>
+<input type="hidden" name="edit_id" value="{{ m.candidate.id }}">
+{% endfor %}
+
+</div>
+</div>
+</form>
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

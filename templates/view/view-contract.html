@@ -1,0 +1,68 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Bordered Table -->
+              <div class="card">
+
+                {% if exits == False %}
+                {% for c in candidate%}
+                {% include 'include/buttons.html' %}
+                {% endfor %}
+                {% else %}
+                {% for  m in page_obj %}
+                {% for c in candidate%}
+                {% include 'include/contract-btn.html' %}
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+
+                <div class="card-body">
+                  <form action="{% url 'del-nkd' %}" method="POST" id="myForm">
+                    {% csrf_token %}
+                  <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered" id="myTable">
+                      <thead>
+                        <tr>
+                          <th>Sno</th>
+                          <th style="width:5%">Candidate</th>
+                          <th>Company</th>
+                          <th >Wages</th>
+                          <th>Vessel Type</th>
+                          <th>Wages Type</th>
+                          <th>Sign on Port</th>
+                          <th>Sign off Port</th>
+            
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for  m in page_obj %}
+                         <tr> 
+                          <td width="5">{{m.id}}</td>
+                          <td  >{{m.candidate}}</td>
+                          <td>{{m.company}}</td>
+                          <td  >{{m.wages}} {{m.currency}}</td>
+                          <td  >{{m.vessel_type}}</td>
+                          <td  >{{m.wages_types}}</td>
+                          <td  >{{m.sign_on_port}}</td>
+                          <td  >{{m.sign_off_port}}</td> 
+                        </tr>
+                         
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                </form>
+                </div>
+                
+              </div>
+              <!--/ Bordered Table -->
+
+            </div>
+            <!-- / Content -->
+{% include 'model/company-model.html' %} 
+          </div>
+{% include 'include/footer.html' %}

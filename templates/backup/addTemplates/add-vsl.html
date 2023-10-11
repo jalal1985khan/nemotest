@@ -1,0 +1,62 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Add VSL Name</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Vessel Name</label>
+       {{ form.vsl_name }}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Vesel Type</label>
+       {{ form.vsl_type }}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Company</label>
+       {{ form.vsl_company }}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">IMO Number</label>
+       {{ form.IMO_Number }}
+     </div>
+   </div>
+   <!-- /.col --> 
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Vessel Flag</label>
+       {{ form.vsl_flag }}
+     </div>
+   </div>
+   <!-- /.col --> 
+</div>
+<button type="submit" class="btn btn-primary">Add VSL Name</button>
+</form>
+</div>
+</div>
+<!-- end here-->
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

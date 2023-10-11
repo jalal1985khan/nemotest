@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+    <section class="content">
+     
+
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Companies</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Sno</th>
+              <th>Company Name</th>
+              <th>Contact Person</th>
+              <th >Address</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Management</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for company in companys %}              
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ company.company_name }}</td>
+              <td>{{ company.contact_person }}</td>
+              <td>{{ company.address }}</td>
+              <td>{{ company.phone }}</td>
+              <td>{{ company.email }}</td>
+              <td>{{ company.management }}</td>
+              <td>
+                <a href="{% url 'edit-company' company.id %}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                <a href="{% url 'delete-company' company.id %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            {% endfor%}            
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+
+
+</div>
+
+<!-- form end here-->
+
+<!-- end body table here-->
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

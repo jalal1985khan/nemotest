@@ -1,0 +1,47 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Bordered Table -->
+              <div class="card pb-4">
+                {% include 'include/buttons.html' %}
+            </div>
+            <!-- / Content -->
+              
+ <!-- Text alignment -->
+ <div class="row mb-5 mt-5">
+   <div class="col-md-6 col-lg-6">
+     <div class="card mb-3">
+       <div class="card-body">
+         <h5 class="card-title">Are you sure you want to delete ?</h5>
+         <p class="card-text">this process is not reversable</p>
+         <form action="{% url 'delete-candidate-document' %}" method="post">
+            {% csrf_token %}
+            {% for object in objects_to_delete %}
+            <div class="row gy-3 mb-5">
+                <div class="col-md">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="selected_ids" id="defaultCheck3{{ object.id }} " value="{{object.id}}" checked="">
+                    <label class="form-check-label" for="defaultCheck3{{ object.id }}">{{ object.candidate }}</label>
+                  </div>
+                </div>
+              </div>
+              
+            {% endfor %}
+            <div class="box-footer">
+              
+                <input type="hidden" name="url" value="{{red}}">
+                <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                <a href="{{red}}" class="btn btn-primary">Cancel</a>
+              </div>
+          </form>
+       </div>
+     </div>
+   </div>
+</div>
+</div>
+{% include 'model/company-model.html' %} 
+</div>
+{% include 'include/footer.html' %}

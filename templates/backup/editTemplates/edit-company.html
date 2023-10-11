@@ -1,0 +1,70 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+
+<section class="error-content" >
+ <!-- Info boxes -->
+ <div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Edit Company</h3>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <form method="POST" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+ <label for="exampleInputEmail1">Company Name</label>
+ {{form.company_name}}
+</div>
+</div>
+<!-- /.col --> 
+<div class="col-md-6">
+<div class="form-group">
+ <label for="exampleInputEmail1">Contact Person</label>
+ {{form.contact_person}}
+</div>
+</div>
+<!-- /.col --> 
+<div class="col-md-6">
+<div class="form-group">
+ <label for="exampleInputEmail1">Address</label>
+ {{form.address}}
+</div>
+</div>
+<!-- /.col --> 
+<div class="col-md-6">
+<div class="form-group">
+ <label for="exampleInputEmail1">Phone</label>
+ {{form.phone}}
+</div>
+</div>
+<!-- /.col --> 
+<div class="col-md-6">
+<div class="form-group">
+ <label for="exampleInputEmail1">Email</label>
+ {{form.email}}
+</div>
+</div>
+<!-- /.col --> 
+
+<div class="col-md-6">
+<div class="form-group">
+<label>Management</label>
+{{form.management}}
+</div>
+<!-- /.form-group -->
+
+</div>
+<!-- /.col -->
+
+</div>
+<button type="submit" class="btn btn-primary">Edit Company</button>
+</form>
+</div>
+</div>
+<!-- end here-->
+
+</section>
+</div>
+  {% include 'footer.html' %}

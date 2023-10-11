@@ -1,0 +1,49 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+<section class="content">
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Add Country</h3>
+            </div>
+            <!-- /.box-header -->
+      <form method="POST" action="">
+              {% csrf_token %}
+            <div class="box-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Country Name</label>
+           {{ form.country_name }}
+         </div>
+       </div>
+       <!-- /.col -->  
+       <div class="col-md-12">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Country Code</label>
+           {{ form.country_code }}
+         </div>
+       </div>
+       <!-- /.col --> 
+              <!-- /.col -->  
+              <div class="col-md-12">
+                <div class="form-group">
+                   <label for="exampleInputEmail1">Phone Code</label>
+                   {{ form.country_phone_code }}
+                 </div>
+               </div>
+               <!-- /.col -->      
+      </div>
+      <!-- /.col -->
+      <button type="submit" class="btn btn-primary">Add Country</button>
+    </div>
+  </form>
+    </div>
+    </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

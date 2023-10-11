@@ -1,0 +1,104 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+
+<!--{{form.as_p}}-->
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">ACCOUNT TYPE</label>
+    {{form.account_type |attr:"class:form-select" }}
+    
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">BANK NAME</label>
+        {{form.bank_name|attr:"placeholder:Bank Name"|attr:"class:form-control" }}
+        
+        </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">ACCOUNT NUMBER</label>
+        {{form.account_no|attr:"placeholder:Account Number"|attr:"class:form-control"}}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">BANK ADDRESS</label>
+            {{form.bank_address|attr:"placeholder:Bank Address"|attr:"class:form-control" }}
+            
+            </div>
+    </div>
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">IFSC CODE</label>
+        {{form.ifsc_code|attr:"placeholder:Ifsc Code"|attr:"class:form-control"}}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">SWIFT CODE</label>
+            {{form.swift_code|attr:"placeholder:Swift Code"|attr:"class:form-control" }}
+            </div>
+    </div> 
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">BENEFICIARY</label>
+        {{form.benificiary|attr:"placeholder:Beneficiary"|attr:"class:form-control" }}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">ADDRESS</label>
+            {{form.benificiary_address |attr:"placeholder:Address"|attr:"class:form-control" }}
+            
+            </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">PANCARD NUMBER</label>
+        {{form.pancard_number|attr:"placeholder:PANCARD NUMBER"|attr:"class:form-control" }}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">PANCARD</label>
+            {{form.pancard |attr:"class:form-control" }}
+            
+            </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">STATEMENT/PASSBOOK/CHECK</label>
+        {{form.statement|attr:"class:form-control"}}
+        
+        </div>
+    </div> 
+
+<div class="row">
+<div class="mb-3 col-md-12 mt-4">
+<button type="submit" class="btn btn-primary mt-1">ADD BANK DETAIL</button>
+<a href="/view-bank/{{pk}}" class="btn btn-success mt-1">GO BACK</a>
+</div>
+</div>
+</form>
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

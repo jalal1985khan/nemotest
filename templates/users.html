@@ -1,0 +1,152 @@
+{% include "header.html" %}
+{% load widget_tweaks %}
+    <section class="content">
+<!--add user from start here-->
+     <!-- Info boxes -->
+
+     <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Add User</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        {% comment %} {{ form.as_p }} {% endcomment %}
+  <form action="" method="POST">  
+          {% csrf_token %}   
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">First Name</label>
+       {{profile.first_name|add_class:"form-control" }}
+     </div>
+   </div>
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Last Name</label>
+       {{profile.last_name|add_class:"form-control" }}
+     </div>
+   </div>
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Username</label>
+       {{form.username|add_class:"form-control" }}
+     </div>
+   </div>
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Phone Number</label>
+       {{profile.phone|add_class:"form-control" }}
+     </div>
+   </div>
+   <div class="col-md-6">
+    <div class="form-group">
+       <label for="exampleInputEmail1">Email</label>
+       {{profile.email|add_class:"form-control" }}
+     </div>
+   </div>
+ <!-- /.col --> 
+ <!-- /.col --> 
+ <div class="col-md-6">
+  <div class="form-group">
+     <label for="exampleInputEmail1">Password</label>
+     {{form.password1|add_class:"form-control" }}
+   </div>
+ </div>
+ <!-- /.col --> 
+ <div class="col-md-6">
+  <div class="form-group">
+     <label for="exampleInputEmail1">Confirm Password</label>
+     {{form.password2|add_class:"form-control" }}
+   </div>
+ </div>
+ <div class="col-md-6">
+  <div class="form-group">
+    <label>Permission</label>
+    <select class="form-control select2" style="width: 100%;" name="permission">
+      {% for group in groups %}
+      <option value="{{ group.name }}">{{ group.name }}</option>
+      {% endfor %}
+      <select>
+  </div>
+</div>
+
+
+</div>
+
+<div class="checkbox">
+  <label>
+    is active 
+    {{ form.is_active|add_class:"minimal" }} 
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+    is Staff
+    {{ form.is_staff|add_class:"minimal" }} 
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+    is Superadmin
+    {{ form.is_superuser|add_class:"minimal" }} 
+  </label>
+
+</div>
+
+
+
+<!-- /.col -->
+<div class="col-md-6">
+<input type="submit" class="btn btn-primary" name="Add New User">
+</div>
+</form>
+</div>
+
+</div>
+
+
+
+<!-- end here-->
+      <!--add user end here-->
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">User Management</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Username</th>
+              <th>Full Name</th>
+              <th>Group</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for customer in customers %}
+            <tr>
+              <td>{{customer.username}}</td>
+              <td>{{customer.first_name}} {{customer.last_name}}</td>
+              <td>{{customer.group_name}}</td>
+              <td>{{customer.is_active}} {{customer.is_superuser}} {{customer.is_staff}}</td>
+              <td> <a href="" class="btn btn-primary">edit</a>
+                <a href="" class="btn btn-danger">delete</a></td>
+            </tr>
+            {% endfor%}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  {% include "footer.html" %}

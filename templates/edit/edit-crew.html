@@ -1,0 +1,81 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-fullname">RANK</label>
+{{ form.crew_rank |attr:"class:form-select" }} </div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-company">CLIENT</label>
+{{ form.crew_company_name|attr:"class:form-select" }}
+</div>
+</div>
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-message">VESSEL TYPE</label>
+{{form.crew_vessel|attr:"class:form-select"}}</div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-email">VESSEL NAME</label>
+<div class="input-group input-group-merge">
+{{form.crew_vsl_name |attr:"class:form-select" }}
+</div>
+</div>
+</div>
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-phone">TRADING</label>
+{{form.crew_trading |attr:"placeholder:TRADING"}}
+</div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-phone">CREW WAGES</label>
+<small>in USD</small>
+{{form.crew_wages |attr:"placeholder:CREW WAGES"}}
+</div>
+</div>
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-phone">DATE OF JOINING</label>
+{{form.crew_doj|attr:"placeholder:CREW WAGES"|attr:"type:date"}}
+</div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-phone">IMMEDIATE JOIN</label>
+{{form.crew_immediate|attr:"class:form-select"}}
+</div>
+</div>
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-phone">OTHER INFORMATION</label>
+{{form.crew_other_info|attr:"placeholder:OTHER INFORMATION"}}
+</div>
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-phone">STATUS</label>
+{{form.crew_status}}
+</div>
+</div>
+<div class="row">
+<div class="mb-3 col-md-6 mt-4">
+<button type="submit" class="btn btn-primary mt-1">UPDATE CREWPLANNER</button>
+<a href="/view-crewplanner" class="btn btn-danger mt-1">Cancel</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!--/ Bordered Table -->
+</div>
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

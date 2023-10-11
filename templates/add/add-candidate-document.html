@@ -1,0 +1,70 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+
+<!--{{form.as_p}}-->
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">document</label>
+    {{form.document |attr:"class:form-control"|attr:"placeholder:Document Name" }}
+    
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">document Number</label>
+        {{form.document_number |attr:"class:form-control"|attr:"placeholder:Document Number" }}
+        
+        
+        </div>
+    </div> 
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">issue date</label>
+        {{form.issue_date |attr:"class:form-control"|attr:"type:date" }}
+        
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label" for="basic-default-fullname">issue place</label>
+            {{form.issue_place |attr:"class:form-control"|attr:"placeholder:Issue Date" }}
+            
+            </div>
+    </div>
+    
+    <div class="row">
+        <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">Document Files</label>
+        {{form.document_files |attr:"class:form-control" }}
+            
+        </div>
+
+    </div> 
+
+<div class="row">
+<div class="mb-3 col-md-12 mt-4">
+<button type="submit" class="btn btn-primary mt-1">ADD DOCUMENT</button>
+<a href="/view-candidate-document/{{pk}}" class="btn btn-success mt-1">GO BACK</a>
+</div>
+</div>
+</form>
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

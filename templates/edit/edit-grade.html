@@ -1,0 +1,40 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="row">
+<div class="mb-3 col-md-12">
+<label class="form-label" for="basic-default-fullname">GRADE NAME</label>
+{{form.grade_name |attr:"placeholder:ACME Inc." }}
+<input type="hidden" value="/view-grade/{{pre_url}}" name="url">
+</div>
+
+
+<div class="mb-3 col-md-12 mt-4">
+<button type="submit" class="btn btn-primary mt-1">UPDATE GRADE</button>
+<a href="/view-grade/{{pre_url}}" class="btn btn-danger mt-1">CANCEL</a>
+</div>
+</div>
+</form>
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

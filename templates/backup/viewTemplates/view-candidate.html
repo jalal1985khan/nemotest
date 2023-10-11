@@ -1,0 +1,91 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Lists Candidate</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table  class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                
+                <th>Nemo ID</th>
+                <th>Full Name</th>
+                <th>Rank</th>
+                <th>Vessel</th>
+                <th>Mobile</th>
+                <th>Age</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for candidate in page_obj %}              
+              <tr>
+              
+                <td>{{ candidate.id }}</td>
+                <td>{{ candidate.first_name }} {{ candidate.last_name }}</td>
+                <td>{{ candidate.rank }}</td>
+                <td>{{ candidate.vessel_type }}</td>
+                <td>{{ candidate.mobile1 }}</td>
+                <td>{{ candidate.date_birth}}</td>
+                <td>
+                  <a href="{% url 'edit-candidate' candidate.id %}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                  <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+              {% endfor%}
+            </tbody>
+          </table>
+
+        
+<div class="row">
+  <div class="col-md-10">
+  <ul class="pagination">
+  {% if page_obj.has_previous %}
+  <li><a href="?first_name={{first_name }}&page={{ page_obj.previous_page_number }}">« Pre</a></li>
+  
+    {% if page_obj.number > 3 %}
+    <li><a href="?first_name={{first_name }}&page=1">1</a></li>
+      {% if page_obj.number > 4 %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  
+  {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <li class="active"><a href="?first_name={{first_name }}&page={{ num }}">{{ num }}</a></li>
+    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+    <li><a href="?first_name={{first_name }}&page={{ num }}">{{ num }}</a></li>
+    {% endif %}
+  {% endfor %}
+  
+  {% if page_obj.has_next %}
+    {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+      <li><a href="?first_name={{first_name }}&page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+    {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+    <li><a href="?first_name={{first_name }}&page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+    {% endif %}
+  
+    <li><a href="?first_name={{first_name }}&page={{ page_obj.next_page_number }}">Next »</a></li>
+  {% endif %}
+  
+  </ul>
+  </div>
+  <div class="col-md-2 page_no">
+      <span class="">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+    </div>
+  </div>
+  
+          
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

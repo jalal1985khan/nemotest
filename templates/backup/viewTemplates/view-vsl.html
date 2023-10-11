@@ -1,0 +1,59 @@
+{% include 'header.html' %}
+{% include 'middleware.html' %}
+
+    <!-- Main content -->
+    <section class="content">
+    
+      <!-- Info boxes -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Lists VSL</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Sno</th>
+              <th>VSL Name</th>
+              <th>VSL Type</th>
+              <th>Company</th>
+              <th>IMO Number</th>
+              <th>Flag</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for v in vsl %}              
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ v.vsl_name }}</td>
+              <td>{{ v.vsl_type }}</td>
+              <td>{{ v.vsl_company }}</td>
+              <td>{{ v.IMO_Number }}</td>
+              <td>{{ v.vsl_flag }}</td>
+              <td>
+                <a href="" class="btn btn-primary"><i class="fa fa-edit"></i>need to work</a>
+                <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            {% endfor%}            
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+
+
+</div>
+
+<!-- form end here-->
+
+<!-- end body table here-->
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}

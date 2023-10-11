@@ -1,0 +1,84 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Bordered Table -->
+              <div class="card">
+                {% include 'include/buttons.html' %}
+                <div class="card-body">
+                  <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered" id="myTable">
+                      <thead>
+                        <tr>
+                            <th>Sno</th>
+                            <th>Rank</th>
+                            <th>Client</th>
+                            <th>Vessel Type</th>
+                            <th>Vessel Name</th>
+                            <th>COC Accepted</th>
+                            <th>Trading</th>
+                            <th>Wages</th>
+                            <th>DOJ</th>
+                            <th>Other Info</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                            <th>Action</th>
+            
+                        </tr>
+                      </thead>
+                      <tbody>
+                       
+                         {% for c in page_obj %}
+                         <tr>
+                          <td width="5">{{ c.pk }}</td>
+                          <td  >{{ c.crew_rank }}</td>
+                          <td  >{{ c.crew_company_name }}</td>
+                          <td  >{{ c.crew_vessel }}</td>
+                          <td  >{{ c.crew_vsl_name }}</td>
+                          <td  >{{ c.crew_trading }}</td>
+                          <td >{{ c.crew_wages }}</td>
+                          <td >{{ c.crew_doj }}</td>
+                          <td >{{ c.crew_immediate }}</td>
+                          <td >{{ c.crew_other_info }}</td>
+                          <td >{{ c.crew_status }}</td>
+                          <td >{{ c.crew_created_by }}</td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                type="button"
+                                class="btn p-0 dropdown-toggle hide-arrow"
+                                data-bs-toggle="dropdown"
+                              >
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url "edit-crewplanner" c.id %}"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="{% url "delete-crewplanner" c.id %}"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                         {% endfor %}
+                       
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                  
+                </div>
+                {% include 'include/pagination.html' %}
+              </div>
+              <!--/ Bordered Table -->
+
+            </div>
+            <!-- / Content -->
+{% include 'model/company-model.html' %} 
+          </div>
+{% include 'include/footer.html' %}

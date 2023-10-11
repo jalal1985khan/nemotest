@@ -1,0 +1,81 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Bordered Table -->
+              <div class="card">
+                {% for c in candidate%}
+                {% include 'include/buttons.html' %}
+                {% endfor %}
+                <div class="card-body">
+                  <form action="{% url 'delete-candidate-document' %}" method="POST" id="myForm">
+                    {% csrf_token %}
+                  <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered" id="myTable">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Sno</th>
+                          <th style="width:5%">Candidate</th>
+                          <th>Document</th>
+                          <th >Document Number</th>
+                          <th>Issue Date</th>
+                          <th>Issue Place</th>
+                          <th>Action</th>
+            
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for  m in page_obj %}
+                         <tr> 
+                          <td>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="selected_ids" value="{{m.id}}" id="instance_delete" >
+                            <input type="hidden" value="{{m.candidate.id}}" name="can_id">
+                          </div></td>
+                          <td width="5">{{m.id}}</td>
+                          <td  >{{m.candidate}}</td>
+                          <td>{{m.document}}</td>
+                          <td  >{{m.document_number}}</td>
+                          <td  >{{m.issue_date}}</td>
+                          <td  >{{m.issue_place}}</td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                type="button"
+                                class="btn p-0 dropdown-toggle hide-arrow"
+                                data-bs-toggle="dropdown"
+                              >
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'edit-candidate-document' m.id %}"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="{% url 'delete-candidate-document' m.id %}"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                         
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                </form>
+                </div>
+                {% include 'include/pagination.html' %}
+              </div>
+              <!--/ Bordered Table -->
+
+            </div>
+            <!-- / Content -->
+{% include 'model/company-model.html' %} 
+          </div>
+{% include 'include/footer.html' %}

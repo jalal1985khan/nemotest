@@ -1,0 +1,85 @@
+{% include 'include/header.html' %}
+{% include 'include/message.html' %}
+{% load widget_tweaks %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+<!-- Bordered Table -->
+<div class="card">
+{% include 'include/buttons.html' %}
+<div class="card-body">
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="row">
+<div class="mb-3 col-md-6">
+<label class="form-label" for="basic-default-fullname">AGENT NAME</label>
+{{form.port_agent |attr:"placeholder:ACME Inc." }}
+
+</div>
+<div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">CONTACT PERSON</label>
+    {{form.port_contact_person|attr:"placeholder:ACME Inc." }}
+    
+    </div>
+</div> 
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">ADDRESS</label>
+    {{form.port_agent_address|attr:"placeholder:Address."}}
+    
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">PHONE</label>
+        {{form.port_agent_phone|attr:"placeholder:Phone Number." }}
+        
+        </div>
+</div>
+
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">EMAIL</label>
+    {{form.port_agent_email|attr:"placeholder:Email-Address."}}
+    
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">CITY</label>
+        {{form.port_agent_city|attr:"placeholder:City." }}
+        
+        </div>
+</div> 
+
+<div class="row">
+    <div class="mb-3 col-md-6">
+    <label class="form-label" for="basic-default-fullname">STATE</label>
+    {{form.port_agent_state|attr:"placeholder:State."}}
+    
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label" for="basic-default-fullname">COUNTRY</label>
+        {{form.port_agent_country|attr:"placeholder:Country." }}
+        
+        </div>
+</div> 
+
+
+<div class="row">
+<div class="mb-3 col-md-12 mt-4">
+<button type="submit" class="btn btn-primary mt-1">UPDAT AGENT</button>
+<a href="/view-agentport/{{pre_url}}" class="btn btn-danger mt-1">CANCEL</a>
+</div>
+</div>
+</form>
+                </div>
+              </div>
+              <!--/ Bordered Table -->
+            </div>
+
+           
+
+</div>
+{% include 'model/company-model.html' %}  
+</div>          
+<!-- / Content -->
+{% include 'include/footer.html' %}

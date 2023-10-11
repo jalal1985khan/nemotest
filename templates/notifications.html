@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <!-- The time line -->
+          <ul class="timeline notify-list">
+            {% for noti in readnotify %}
+            <li>
+                {% if noti.status == True %}
+                <i class="fa fa-envelope-open-o bg-aqua"></i>
+                {% else %}
+                <i class="fa fa-envelope-o bg-green"></i>
+                {% endif %}
+
+                <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> {{ noti.added_by_user }} {{ noti.date_created }}</span>
+                    <h3 class="timeline-header no-border">{{ noti.notify_details }}</h3></div>
+                </li>
+                {% endfor %}
+            <!-- END timeline item -->
+           
+ 
+   
+          </ul>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+ {% include 'footer.html' %}

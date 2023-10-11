@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nemo | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="/staticfiles/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/staticfiles/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/staticfiles/bower_components/Ionicons/css/ionicons.min.css">
+
+  <link rel="stylesheet" href="/staticfiles/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/staticfiles/dist/css/AdminLTE.css">
+
+  <link rel="stylesheet" href="/staticfiles/dist/css/custom.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/staticfiles/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="/staticfiles/plugins/iCheck/all.css">
+  <link rel="stylesheet" href="/staticfiles/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  
+  <link rel="stylesheet" href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css"/>
+  <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+
+<style>
+  .pt-10{
+    padding-top:24px;
+    }
+    .f-right{
+      float:right;
+      padding-right: 16px;
+    }
+    .import{
+      disply:none;
+    }
+    #time{
+      background: #008d4c;
+        border-radius: 0px;
+        padding: 5px;
+        color: white;
+        font-size: 21px;
+    }
+    .btn-app:hover {
+      background: #d73826;
+      color: #fff;
+      border-color: #aaa;
+    }
+    .btn-active {
+      background: #d73826;
+      color: #fff;
+      border-color: #aaa;
+    }
+    .autocomplete-result-list{
+      z-index: 9999 !important;
+      width: 70% !important;
+    }
+    form.mt-2 {
+    margin-top: 7px !important;
+}  
+.autocomplete-input {
+    border: 1px solid #eee;
+    border-radius: 3px;
+    width: 70%;
+    padding: 8px 27px 8px 49px;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+    flex: 1;
+    background-color: #eee;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+);
+    background-repeat: no-repeat;
+    background-position: 12px;
+}
+.page_no{
+  margin-top: 28px;
+  font-weight: 400;
+}
+.time-container{
+  background: linear-gradient(0deg, rgb(60 141 188) 0%, #FF9800 50%, rgb(222 75 57) 100%);
+  border: 2px solid #f4f4f4;
+  color: white;
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 200%;
+  /* font-weight: bolder; */
+  background: #3c8dbc;
+}
+@media all and (max-width:350px){
+  .time-container{
+      font-size: 20px;
+  }
+} 
+</style>
+<style>
+  .toaster {
+    position: fixed;
+    top: 120px;
+    right: 30px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 35px 20px 25px;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    z-index: 9999;
+  }
+  
+  .toaster.active {
+    transform: translateX(0%);
+  }
+  
+  .toaster .toaster-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toaster-content .check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    min-width: 35px;
+    background-color: #05a55a;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+  }
+  
+  .toaster-content .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  
+  .message .text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+  }
+  
+  .message .text.text-1 {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .toaster .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  
+  .toaster .close:hover {
+    opacity: 1;
+  }
+  
+  .toaster .progress {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+  
+  }
+  
+  .toaster .progress:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #05a55a;
+  }
+  
+  .progress.active:before {
+    animation: progress 5s linear forwards;
+  }
+  
+  @keyframes progress {
+    100% {
+      right: 100%;
+    }
+  }
+
+  
+  .toaster.active ~ button {
+    pointer-events: none;
+  }
+  
+ </style>
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="{% url 'dashboard' %}" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>LT</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>NsNemo123</b></span>
+    </a>
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-left">
+        <div class="row">
+          <div class="col-sm-8">
+ <!-- search form -->
+
+ <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    ...
+  </div>
+</div>
+ <form action="/search" method="GET" class="mt-2">
+    <div id="autocomplete" class="autocomplete">
+      <input class="autocomplete-input" name="first_name"/>
+      <ul class="autocomplete-result-list"></ul>
+    </div>
+</form>
+
+
+
+
+
+</div>
+<div class="col-sm-2 ad-search">
+<a href="{% url "search" %}" class="btn btn-danger">Advanced search</a></div>
+{% if request.user.is_staff %}
+<div class="col-sm-2 ad-search">
+  <a href="{% url "add-candidate" %}" class="btn btn-success">Add Candidate</a></div>
+  {% endif%}
+</div>
+
+<!-- /.search form -->
+      </div>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          {% if request.user.is_staff%}
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o dash-icons"></i>
+              <span class="label label-warning total-notify"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header total-count">No notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu header-notify">
+                  
+                 
+                 
+                </ul>
+              </li>
+              <li class="footer"><a href="{% url 'notification' %}">View all</a></li>
+            </ul>
+          </li>
+          {% endif%}
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              
+              <img src="/media/{{ request.user.profile.user_image }}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ request.user.profile.name }}
+              </span>
+            </a>
+            <ul class="dropdown-menu">    
+
+              <li class="user-header">
+                <img src="/media/{{ request.user.profile.user_image }}" class="img-circle" alt="User Image">
+                <p>
+                  {{ request.user.profile.name }}
+                  <small>{{ request.user.date_joined_0 }}</small>
+                  {%  if request.user.is_superuser == True %} Administrator {% endif %} </p>
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="{% url 'profile' %}" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{% url 'logout' %}" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="/media/{{ request.user.profile.user_image }}" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{ request.user.profile.name }}</p>
+          {% comment %} <a href="#"><i class="fa fa-circle text-success"></i> Online</a> {% endcomment %}
+        </div>
+      </div>
+
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="">
+          <a href="{% url "dashboard" %}">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
+        
+
+        {% if request.user.is_staff %}
+        
+        <li class="treeview {% if request.path == '/users/' %} active menu-open {% endif %}">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>User Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{% if request.path == '/users/' %} active {% endif %}"><a href="/users"><i class="fa fa-circle-o"></i> Lists User</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview {% if request.path == '/view-company/' or request.path == '/edit-company/' or request.path == '/add-company/' or request.path == '/company-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-vessel/' or request.path == '/add-vessel/' or request.path == '/edit-vessel/' or request.path == '/vessel-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-experience/' or request.path == '/add-experience/' or request.path == '/edit-experience/' or request.path == '/experience-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-rank/' or request.path == '/edit-rank/' or request.path == '/add-rank/' or request.path == '/rank-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-grade/' or request.path == '/edit-grade/' or request.path == '/add-grade/' or request.path == '/grade-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-port/' or request.path == '/edit-port/' or request.path == '/add-port/' or request.path == '/port-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-agentport/'  or request.path == '/add-agentport/' or request.path == '/agentport-import/'  %} active menu-open {% endif %}
+        {% if request.path == '/view-hospital/' or request.path == '/edit-hospital/' or request.path == '/add-hospital/' or request.path == '/hospital-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-document/' or request.path == '/edit-document/' or request.path == '/add-document/' or request.path == '/document-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-vendor/' or request.path == '/edit-vendor/' or request.path == '/add-vendor/' or request.path == '/vendor-import/' %} active menu-open {% endif %}
+        {% if request.path == '/view-vsl/' or request.path == '/edit-vsl/' or request.path == '/add-vsl/' or request.path == '/vsl-import/' %} active menu-open {% endif %}
+        ">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Settings</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu ">
+            <li class="{% if request.path == '/view-company/' or request.path == '/add-company/' or request.path == '/edit-company/' or request.path == '/company-import/' %} active {% endif %}"><a href="{% url 'view-company' %}"><i class="fa fa-circle-o"></i> Lists Company</a></li>
+            <li class="{% if request.path == '/view-vessel/' or request.path == '/edit-vessel/' or request.path == '/add-vessel/' or request.path == '/vessel-import/' %} active {% endif %}"><a href="{% url 'view-vessel' %}"><i class="fa fa-circle-o"></i> Lists Vessel Type</a></li>
+            <li class="{% if request.path == '/view-vsl/' or request.path == '/edit-vsl/' or request.path == '/add-vsl/' or request.path == '/vsl-import/' %} active {% endif %}"><a href="{% url 'view-vsl' %}"><i class="fa fa-circle-o"></i> Lists VSL Name</a></li>
+            <li class="{% if request.path == '/view-experience/' or request.path == '/edit-experience/' or request.path == '/add-experience/' or request.path == '/experience-import/' %} active {% endif %}"><a href="{% url 'view-experience' %}"><i class="fa fa-circle-o"></i> Lists Experience</a></li>
+            <li class="{% if request.path == '/view-rank/' or request.path == '/edit-rank/' or request.path == '/add-rank/' or request.path == '/rank-import/' %} active {% endif %}"><a href="{% url 'view-rank' %}"><i class="fa fa-circle-o"></i> Lists Rank</a></li>
+            <li class="{% if request.path == '/view-grade/' or request.path == '/edit-grade/' or request.path == '/add-grade/' or request.path == '/grade-import/' %} active {% endif %}"><a href="{% url 'view-grade' %}"><i class="fa fa-circle-o"></i> Lists Grade</a></li>
+            <li class="{% if request.path == '/view-port/' or request.path == '/edit-port/' or request.path == '/add-port/' or request.path == '/port-import/' %} active {% endif %}"><a href="{% url 'view-port' %}"><i class="fa fa-circle-o"></i> Lists Port</a></li>
+            <li class="{% if request.path == '/view-agentport/' or request.path == '/add-agentport/' or request.path == '/agentport-import/'  %} active {% endif %}"><a href="{% url 'view-agentport' %}"><i class="fa fa-circle-o"></i> Lists Port Agent</a></li>
+            <li class="{% if request.path == '/view-hospital/' or request.path == '/add-hospital/' or request.path == '/edit-hospital/pk' or request.path == '/hospital-import/' %} active {% endif %}"><a href="{% url 'view-hospital' %}"><i class="fa fa-circle-o"></i> Lists Hospital</a></li>
+            <li class="{% if request.path == '/view-document/' or request.path == '/add-document/' or request.path == '/document-import/' %} active {% endif %}"><a href="{% url 'view-document' %}"><i class="fa fa-circle-o"></i> Lists Document Type</a></li>
+            <li class="{% if request.path == '/view-vendor/' or request.path == '/add-vendor/' or request.path == '/vendor-import/' %} active {% endif %}"><a href="{% url 'view-vendor' %}"><i class="fa fa-circle-o"></i> Lists Vendors</a></li>
+
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+   
+
+        <li class="header">IMPORTANTS</li>
+        <li><a href="{% url 'view-country' %}"><i class="fa fa-circle-o text-red"></i> <span>Country List</span></a></li>
+        <li><a href="{% url 'view-candidate' %}"><i class="fa fa-circle-o text-red"></i> <span>Candidate Lists</span></a></li>
+        <li><a href="{% url 'office-document' %}"><i class="fa fa-circle-o text-red"></i> <span>Office Documents</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Due for Renewal</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Reminder</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Birthday Reminder</span></a></li>
+        <li><a href="{% url 'view-crewplanner' %}"><i class="fa fa-circle-o text-aqua"></i> <span>Crew Planner</span></a></li>
+        {% endif %}
+      </ul>
+      
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small>Version 2.4.18</small>
+      </h1>
+      <ol class="breadcrumb">
+        {% now "d/m/Y" %}
+        <div class="time-container">
+          <span id="hrs"></span>
+          <span>:</span>
+          <span id="mins"></span>
+          <span>:</span>
+          <span id="sec"></span>
+          <span id="ampm">AM</span>
+      </div>
+      </ol>
+    </section>
+    <br>
+    <section class="error-content">
+      <!-- Main content -->
+    {{form.errors}}
+    {% for message in messages%}
+
+        <!-- Remove 'active' class, this is just to show in Codepen thumbnail -->
+<div class="toaster active">
+  <div class="toaster-content">
+    <i class="fa fa-solid fa-check check"></i>
+
+    <div class="message">
+      <span class="text text-1">Success</span>
+      <span class="text text-2">{{message}}</span>
+    </div>
+  </div>
+  <i class="fa fa-close close"></i>
+  <div class="progress active"></div>
+</div>
+
+    {% endfor%}
+    </section>
+ 
+
+
